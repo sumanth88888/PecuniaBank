@@ -1,10 +1,11 @@
 
 package com.capgemini.pecunia.bank.service;
+
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.capgemini.pecunia.bank.util.walletConstants;
 import com.capgemini.pecunia.bank.dao.TransactionDao;
 import com.capgemini.pecunia.bank.dto.Transfer;
 import com.capgemini.pecunia.bank.dto.TxnForm;
@@ -14,7 +15,6 @@ import com.capgemini.pecunia.bank.entity.Customer;
 import com.capgemini.pecunia.bank.entity.Slip;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.TransactionException;
-
 
 @javax.transaction.Transactional
 @Service("TransactionSer")
@@ -31,7 +31,8 @@ public class TransactionServiceImpl implements TransactionService {
 		toAcc.setBalance(txnform.getAmount() + toAcc.getBalance());
 
 		// CALLING TRANSACTION METHOD
-		TxnWithSlip(1547436L, walletConstants.CREDIT, txnform.getAmount(), LocalDate.of(2020, 04, 15), walletConstants.transcation_status, toAcc, 1645473L);
+		TxnWithSlip(1547436L, walletConstants.CREDIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),
+				walletConstants.transcation_status, toAcc, 1645473L);
 
 		return true;
 
@@ -48,7 +49,8 @@ public class TransactionServiceImpl implements TransactionService {
 		fromAcc.setBalance(fromAcc.getBalance() - txnform.getAmount());
 
 		// CALLING TRANSACTION METHOD
-		TxnWithSlip(12L,walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),walletConstants.transcation_status, fromAcc, 2L);
+		TxnWithSlip(12L, walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),
+				walletConstants.transcation_status, fromAcc, 2L);
 
 		return true;
 	}
@@ -63,8 +65,9 @@ public class TransactionServiceImpl implements TransactionService {
 			throw new TransactionException(walletConstants.INSUFFICIENT_BALANCE);
 		fromAcc.setBalance(fromAcc.getBalance() - transfer.getAmount());
 
-		TxnWithCheque(84363L, walletConstants.DEBIT, transfer.getAmount(), LocalDate.of(2020, 04, 12), walletConstants.transcation_status, fromAcc, 9844L,
-				"SBI72825", LocalDate.of(2020, 03, 20), transfer.getFromAccId());
+		TxnWithCheque(84363L, walletConstants.DEBIT, transfer.getAmount(), LocalDate.of(2020, 04, 12),
+				walletConstants.transcation_status, fromAcc, 9844L, "SBI72825", LocalDate.of(2020, 03, 20),
+				transfer.getFromAccId());
 
 		// creating toAcc instance
 		Account toAcc = dao.getAccount(transfer.getToAccId());
@@ -72,8 +75,9 @@ public class TransactionServiceImpl implements TransactionService {
 			throw new AccountNotFoundException(walletConstants.INVALID_ACCOUNT);
 		toAcc.setBalance(toAcc.getBalance() + transfer.getAmount());
 
-		TxnWithCheque(5543L, walletConstants.CREDIT, transfer.getAmount(), LocalDate.of(2020, 04, 18), walletConstants.transcation_status, fromAcc, 4647L,
-				"SBI72825", LocalDate.of(2020, 03, 14), transfer.getToAccId());
+		TxnWithCheque(5543L, walletConstants.CREDIT, transfer.getAmount(), LocalDate.of(2020, 04, 18),
+				walletConstants.transcation_status, fromAcc, 4647L, "SBI72825", LocalDate.of(2020, 03, 14),
+				transfer.getToAccId());
 		return true;
 	}
 
@@ -87,8 +91,9 @@ public class TransactionServiceImpl implements TransactionService {
 
 		fromAcc.setBalance(fromAcc.getBalance() - txnform.getAmount());
 
-		TxnWithCheque(20L, walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 16), walletConstants.transcation_status, fromAcc, 14561L,
-				"SBI72827", LocalDate.of(2020, 03, 26), txnform.getAccId());
+		TxnWithCheque(20L, walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 16),
+				walletConstants.transcation_status, fromAcc, 14561L, "SBI72827", LocalDate.of(2020, 03, 26),
+				txnform.getAccId());
 
 		return true;
 	}
