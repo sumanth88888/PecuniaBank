@@ -13,7 +13,7 @@ import com.capgemini.pecunia.bank.entity.Customer;
 import com.capgemini.pecunia.bank.entity.Slip;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.TransactionException;
-import com.cg.penicua.bank.dao.TransactionDao;
+import com.capgemini.penicua.bank.dao.TransactionDao;
 
 
 @javax.transaction.Transactional

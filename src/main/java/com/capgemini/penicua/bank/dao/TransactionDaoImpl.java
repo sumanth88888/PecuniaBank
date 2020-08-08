@@ -1,4 +1,4 @@
-package com.cg.penicua.bank.dao;
+package com.capgemini.penicua.bank.dao;
 
 
 import javax.persistence.EntityManager;
