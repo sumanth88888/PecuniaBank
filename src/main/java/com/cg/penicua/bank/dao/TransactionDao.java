@@ -8,6 +8,8 @@ import com.capgemini.pecunia.bank.entity.Slip;
 import com.capgemini.pecunia.bank.entity.Transaction;
 
 
+
+
 public interface TransactionDao {
 
 	public Account getAccount(String acc_id);
