@@ -1,15 +1,16 @@
 package com.cg.penicua.bank.dao;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import com.cg.bank.entity.Account;
-import com.cg.bank.entity.Cheque;
-import com.cg.bank.entity.Customer;
-import com.cg.bank.entity.Slip;
-import com.cg.bank.entity.Transaction;
+import com.capgemini.pecunia.bank.entity.Account;
+import com.capgemini.pecunia.bank.entity.Cheque;
+import com.capgemini.pecunia.bank.entity.Customer;
+import com.capgemini.pecunia.bank.entity.Slip;
+import com.capgemini.pecunia.bank.entity.Transaction;
 
 @Repository
 public class TransactionDaoImpl implements TransactionDao {
