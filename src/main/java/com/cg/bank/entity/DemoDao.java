@@ -1,4 +1,4 @@
-package com.capgemini.pecunia.bank.dao;
+package com.cg.bank.entity;
 
 public class DemoDao {
 
