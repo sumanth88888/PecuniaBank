@@ -1,4 +1,4 @@
-package com.cg.pecunia.bank;
+package com.capgemini.pecunia.bank;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
