@@ -1,4 +1,4 @@
-package com.capgemini.penicua.bank.dao;
+package com.capgemini.pecunia.bank.dao;
 
 
 import com.capgemini.pecunia.bank.entity.Account;

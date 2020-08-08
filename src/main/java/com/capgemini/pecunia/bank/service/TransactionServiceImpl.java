@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.pecunia.bank.dao.TransactionDao;
 import com.capgemini.pecunia.bank.dto.Transfer;
 import com.capgemini.pecunia.bank.dto.TxnForm;
 import com.capgemini.pecunia.bank.entity.Account;
@@ -13,7 +14,6 @@ import com.capgemini.pecunia.bank.entity.Customer;
 import com.capgemini.pecunia.bank.entity.Slip;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.TransactionException;
-import com.capgemini.penicua.bank.dao.TransactionDao;
 
 
 @javax.transaction.Transactional
