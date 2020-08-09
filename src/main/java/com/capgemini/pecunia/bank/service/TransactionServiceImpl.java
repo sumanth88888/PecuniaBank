@@ -31,8 +31,8 @@ public class TransactionServiceImpl implements TransactionService {
 		toAcc.setBalance(txnform.getAmount() + toAcc.getBalance());
 
 		// CALLING TRANSACTION METHOD
-		TxnWithSlip(1547436L, walletConstants.CREDIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),
-				walletConstants.transcation_status, toAcc, 1645473L);
+		TxnWithSlip( walletConstants.CREDIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),
+				walletConstants.transcation_status, toAcc, 456L);
 
 		return true;
 
@@ -49,8 +49,8 @@ public class TransactionServiceImpl implements TransactionService {
 		fromAcc.setBalance(fromAcc.getBalance() - txnform.getAmount());
 
 		// CALLING TRANSACTION METHOD
-		TxnWithSlip(12L, walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),
-				walletConstants.transcation_status, fromAcc, 2L);
+		TxnWithSlip(walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 15),
+				walletConstants.transcation_status, fromAcc, 7484L);
 
 		return true;
 	}
@@ -65,7 +65,7 @@ public class TransactionServiceImpl implements TransactionService {
 			throw new TransactionException(walletConstants.INSUFFICIENT_BALANCE);
 		fromAcc.setBalance(fromAcc.getBalance() - transfer.getAmount());
 
-		TxnWithCheque(84363L, walletConstants.DEBIT, transfer.getAmount(), LocalDate.of(2020, 04, 12),
+		TxnWithCheque(walletConstants.DEBIT, transfer.getAmount(), LocalDate.of(2020, 04, 12),
 				walletConstants.transcation_status, fromAcc, 9844L, "SBI72825", LocalDate.of(2020, 03, 20),
 				transfer.getFromAccId());
 
@@ -75,7 +75,7 @@ public class TransactionServiceImpl implements TransactionService {
 			throw new AccountNotFoundException(walletConstants.INVALID_ACCOUNT);
 		toAcc.setBalance(toAcc.getBalance() + transfer.getAmount());
 
-		TxnWithCheque(5543L, walletConstants.CREDIT, transfer.getAmount(), LocalDate.of(2020, 04, 18),
+		TxnWithCheque( walletConstants.CREDIT, transfer.getAmount(), LocalDate.of(2020, 04, 18),
 				walletConstants.transcation_status, fromAcc, 4647L, "SBI72825", LocalDate.of(2020, 03, 14),
 				transfer.getToAccId());
 		return true;
@@ -91,17 +91,17 @@ public class TransactionServiceImpl implements TransactionService {
 
 		fromAcc.setBalance(fromAcc.getBalance() - txnform.getAmount());
 
-		TxnWithCheque(20L, walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 16),
+		TxnWithCheque( walletConstants.DEBIT, txnform.getAmount(), LocalDate.of(2020, 04, 16),
 				walletConstants.transcation_status, fromAcc, 14561L, "SBI72827", LocalDate.of(2020, 03, 26),
 				txnform.getAccId());
 
 		return true;
 	}
 
-	public Boolean TxnWithSlip(Long transactionId, String transactionType, double transactionAmount,
+	public Boolean TxnWithSlip(String transactionType, double transactionAmount,
 			LocalDate transactionDate, String transactionStatus, Account account, Long slipId) {
 		Slip slip = new Slip();
-		slip.setTransactionId(transactionId);
+		//slip.setTransactionId(transactionId);
 		slip.setTransactionType(transactionType);
 		slip.setTransactionAmount(transactionAmount);
 		slip.setTransactionDate(LocalDate.now());
@@ -113,11 +113,11 @@ public class TransactionServiceImpl implements TransactionService {
 		return true;
 	}
 
-	public Boolean TxnWithCheque(Long transactionId, String transactionType, double transactionAmount,
+	public Boolean TxnWithCheque( String transactionType, double transactionAmount,
 			LocalDate transactionDate, String transactionStatus, Account account, Long chequeId, String ifsc,
 			LocalDate chequeIssueDate, String beneficiaryAccountNumber) {
 		Cheque cheque = new Cheque();
-		cheque.setTransactionId(transactionId);
+		
 		cheque.setTransactionType(transactionType);
 		cheque.setTransactionAmount(transactionAmount);
 		cheque.setTransactionDate(transactionDate);

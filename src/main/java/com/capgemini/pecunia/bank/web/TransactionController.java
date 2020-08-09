@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.pecunia.bank.dto.BankMessage;
 import com.capgemini.pecunia.bank.dto.Transfer;
 import com.capgemini.pecunia.bank.dto.TxnForm;
 import com.capgemini.pecunia.bank.entity.Account;
@@ -21,43 +22,54 @@ public class TransactionController {
 	private TransactionService service;
 
 	@PostMapping("/creditBySlip")
-	public String creditUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException {
+	public BankMessage creditUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException {
 
 		service.creditUsingSlip(txnform);
-		return walletConstants.TRANSACTION_SUCCESS;
+		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+		return bankmessage;
 	}
 
 	@PostMapping("/debitBySlip")
-	public String debitUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
+	public BankMessage debitUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
 
 		service.debitUsingSlip(txnform);
-		return walletConstants.TRANSACTION_SUCCESS;
+		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+
+		return bankmessage;
 	}
 
 	@PostMapping("/creditByCheque")
-	public String creditByCheque(@RequestBody Transfer transfer) throws AccountNotFoundException, TransactionException {
+	public BankMessage creditByCheque(@RequestBody Transfer transfer) throws AccountNotFoundException, TransactionException {
 
 		service.creditUsingCheque(transfer);
-		return walletConstants.TRANSACTION_SUCCESS;
+		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+
+		return bankmessage;
 	}
 
 	@PostMapping("/debitByCheque")
-	public String debitByCheque(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
+	public BankMessage debitByCheque(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
 
 		service.debitUsingCheque(txnform);
-		return walletConstants.TRANSACTION_SUCCESS;
+		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+
+		return bankmessage;
 	}
 
 	@PostMapping("/add_account")
-	public String addAccount(@RequestBody Account account) {
+	public BankMessage addAccount(@RequestBody Account account) {
 		service.addAccount(account);
-		return walletConstants.ACCOUNT_CREATED;
+		BankMessage bankmessage=new BankMessage(walletConstants.ACCOUNT_CREATED);
+
+		return bankmessage;
 	}
 
 	@PostMapping("/add_customer")
-	public String addCustomer(@RequestBody Customer customer) {
+	public BankMessage addCustomer(@RequestBody Customer customer) {
 		service.addCust(customer);
-		return walletConstants.ACCOUNT_CREATED;
+		BankMessage bankmessage=new BankMessage(walletConstants.ACCOUNT_CREATED);
+
+		return bankmessage;
 	}
 
 }

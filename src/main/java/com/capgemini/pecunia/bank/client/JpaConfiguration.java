@@ -74,7 +74,7 @@ public class JpaConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws NamingException {
 		LocalContainerEntityManagerFactoryBean factoryBean= new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setPackagesToScan(new String[] {"com.cg.bank.entity"});
+		factoryBean.setPackagesToScan(new String[] {"com.capgemini.pecunia.bank.entity"});
 		factoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 		factoryBean.setJpaProperties(jpaProperties());
 		
