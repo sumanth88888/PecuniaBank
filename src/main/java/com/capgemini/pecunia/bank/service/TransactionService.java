@@ -10,11 +10,7 @@ import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.TransactionException;
 
 public interface TransactionService {
-	/* public int getBalance(Account account); */
-
-	/*
-	 * public Boolean updateBalance(Account account);
-	 */
+	
 	public Boolean creditUsingSlip(TxnForm txnform) throws AccountNotFoundException;
 
 	public Boolean debitUsingSlip(TxnForm txnform) throws AccountNotFoundException,TransactionException;
