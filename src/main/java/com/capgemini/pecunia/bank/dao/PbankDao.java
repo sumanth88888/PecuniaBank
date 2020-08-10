@@ -6,6 +6,7 @@ import java.util.List;
 import com.capgemini.pecunia.bank.entity.Transaction;
 
 
+
 public interface PbankDao {
 
 	public List<Transaction> getBankTransactions(String UserId);

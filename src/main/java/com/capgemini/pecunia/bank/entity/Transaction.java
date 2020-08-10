@@ -105,8 +105,16 @@ public class Transaction {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+
+	@Override
+	public String toString() {
+		return "Transaction transactionId="+ transactionId +", transactionAmount "+transactionAmount + ",transactionDate"+transactionDate;
+	}
 	
 	
 	
 	
 }
+
+//return "Transaction  transactionId=" + transactionId 
+//+ ", dateOfTransaction=" + dateOfTransaction + ", amount=" + amount ;
