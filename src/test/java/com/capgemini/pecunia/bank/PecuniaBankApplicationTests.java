@@ -1,4 +1,4 @@
-package com.cg.pecunia.bank;
+package com.capgemini.pecunia.bank;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -49,14 +49,14 @@ public class PecuniaBankApplicationTests {
     public ExpectedException expectedThrown = ExpectedException.none();
 	
 	@Test
-	public void addLoanRequestTest() {
+	public void addLoanRequestTest() throws AccountNotFoundException {
 		when(loanRequestService.createLoanRequest(loanRequestForm)).thenReturn("LoanRequestSuccessful");
 		assertEquals("LoanRequestSuccessful", loanRequestService.createLoanRequest(loanRequestForm));
 	}
 
 
 	@Test(/*expected = AccountNotFoundException.class*/)
-	public void addLoanRequestAccountNotFound() {
+	public void addLoanRequestAccountNotFound() throws AccountNotFoundException {
 		//LoanRequestService spy = Mockito.spy(loanRequestService);
 		//when(loanRequestService.createLoanRequest(loanRequestForm)).thenThrow(AccountNotFoundException.class);
 		//when(spy.createLoanRequest(loanRequestForm)).thenThrow(AccountNotFoundException.class);

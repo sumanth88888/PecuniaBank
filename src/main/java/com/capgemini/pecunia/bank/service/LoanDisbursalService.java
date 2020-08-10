@@ -8,8 +8,10 @@ import com.capgemini.pecunia.bank.exceptions.LoanException;
 
 public interface LoanDisbursalService {
 
+	
 	public boolean disburseLoanRequest(String loanRequestId) throws AccountNotFoundException;
 	
-	public List<LoanRequest> retrievedisbursedLoanRequest(String status) throws LoanException;	
+	public List<LoanRequest> retrievedisbursedLoanRequest(String status) throws LoanException;
+	
 	
 }
