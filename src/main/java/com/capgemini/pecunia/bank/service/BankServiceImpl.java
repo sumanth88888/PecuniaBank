@@ -3,6 +3,7 @@ package com.capgemini.pecunia.bank.service;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,16 @@ import com.capgemini.pecunia.bank.exceptions.InvalidAccountException;
 import com.capgemini.pecunia.bank.exceptions.InvalidCustomerException;
 import com.capgemini.pecunia.bank.util.AccountConstants;
 
+/************************************************************************************
+ *          @author           Rakesh
+ *          Description       It is a service class that interacts with 
+ *                                     BankService Interface.
+ *          @version          1.0
+ *          Created Date      07-AUG-2020
+************************************************************************************/
+
+@Service
+@Transactional
 public class BankServiceImpl implements BankService{
 
 	@Autowired

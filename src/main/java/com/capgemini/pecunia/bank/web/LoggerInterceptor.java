@@ -10,6 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/******************************************************************************************
+ *          @author           Rakesh Kuruva
+ *          Description       It is a Logger Interceptor Advice class that detects the life  
+ *                                        cycle events in the server.
+ *          @version          1.0
+ *          Created Date      11-AUG-2020
+*******************************************************************************************/
+
 @Component
 public class LoggerInterceptor implements HandlerInterceptor {
 	

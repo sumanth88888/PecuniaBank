@@ -13,6 +13,14 @@ import com.capgemini.pecunia.bank.exceptions.InvalidAccountException;
 import com.capgemini.pecunia.bank.exceptions.InvalidCustomerException;
 import com.capgemini.pecunia.bank.util.AccountConstants;
 
+/******************************************************************************************
+ *          @author           Rakesh Kuruva
+ *          Description       It is a Rest Controller Advice class that globally Handles 
+ *                                       that Exception that raised in the Rest Controller.
+ *          @version          1.0
+ *          Created Date      10-AUG-2020
+*******************************************************************************************/
+
 @RestControllerAdvice
 public class BankExceptionAdvice {
 

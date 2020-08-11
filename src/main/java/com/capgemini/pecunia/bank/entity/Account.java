@@ -10,6 +10,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+/****************************************************************************************************
+ *          @author          Rakesh Kuruva
+ *          Description      It is an Entity class of Account that is mapped with the Oracle DataBase
+ *                                       of table bank_account.
+ *          @version         1.0
+ *          Created Date     05-AUG-2020
+ ****************************************************************************************************/
+
 @Entity
 @DynamicInsert
 @DynamicUpdate

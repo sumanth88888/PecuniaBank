@@ -1,5 +1,15 @@
 package com.capgemini.pecunia.bank.util;
 
+
+/************************************************************************************
+ *          @author          Rakesh Kuruva
+ *          Description      It is an utility class which provides global constants
+ *                                      throughout the project to avoid numbers and 
+ *                                      Strings. 
+ *          @version         1.0
+ *          Created Date     08-AUG-2020
+ ************************************************************************************/
+
 public class AccountConstants {
 
 	

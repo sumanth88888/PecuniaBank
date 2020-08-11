@@ -3,6 +3,13 @@ package com.capgemini.pecunia.bank.dao;
 import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.entity.Customer;
 
+/**********************************************************************************************************
+ *          @author          Rakesh Kuruva
+ *          Description      It is a DAO(Data Access Object) interface of BankDao contains the method
+ *                                      declarations of BankDaoImpl
+ *          @version         1.0
+ *          Created Date     05-AUG-2020
+ **********************************************************************************************************/
 public interface BankDao {
 
 		

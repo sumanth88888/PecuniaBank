@@ -6,6 +6,14 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.sql.Date;
 
+/*************************************************************************************************************
+*          @author          Rakesh Kuruva
+*          Description      It is a class of LDT Converter which is used to covert the Date into LocalDate
+*                                       and vice versa automatically by Converter annotation.
+*          @version         1.0
+*          Created Date     05-AUG-2020
+*************************************************************************************************************/
+
 @Converter(autoApply = true)
 public class LDTConverter implements AttributeConverter<LocalDate, Date> {
 

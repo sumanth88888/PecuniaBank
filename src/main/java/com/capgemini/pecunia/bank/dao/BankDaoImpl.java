@@ -3,11 +3,23 @@ package com.capgemini.pecunia.bank.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
 import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.entity.Customer;
 
 
+/****************************************************************************************
+ *          @author          Rakesh Kuruva
+ *          Description      It is a DAO implementation class that interacts with
+ *                                      Oracle DataBase for Account,Customer,Transaction
+ *                                      and Loan Management.
+ *          @version         1.0
+ *          Created Date     05-AUG-2020
+*****************************************************************************************/
 
+
+@Repository
 public class BankDaoImpl implements BankDao{
 	
 	@PersistenceContext
