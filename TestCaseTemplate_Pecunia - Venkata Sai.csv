@@ -1,0 +1,18 @@
+Test Case Id,PreCondition,Test Scenario / Test Condition,Test Case / Test Step,Test Data,Expected Result,Remarks,Req: Reference,Functional / Non-Functional
+<Sequence number>,<Identify test scenarios>,<This cell describes what to test for i.e. the condition which is being tested for>,<This cell describes how to test i.e. the detailed testing procedure>,<Mention test data to be used>,<Describe the expected test result>,Pass\Fail,<Requirement specification for respective Use case module>,
+TC_PBUPDAT_01,User should logged in,Validating the account Id,Enter AccountId,12345678901,raise AccountIdException Display shouldbe 12 digit number,Fail,,Functional
+TC_PBUPDAT_02,User should logged in,Validating the account Id,Enter AccountId,0,"raise AccountIdException Display AccountId greaterthen Zero
+",Fail,,Functional
+TC_PBUPDAT_03,User should logged in,Validating the account Id,Enter AccountId,-1.23457E+11,"raise AccountIdException Display should be positive number
+",Fail,,Functional
+TC_PBUPDAT_04,User should logged in,Validating the account Id,Enter AccountId,1.23457E+11,Gets account transactions,Pass,,Functional
+,,,,,,,,
+TC_ACCSUMMARY_01,User should be logged in,Validating the account Id & dates,Enter AccountId & dates,"12345678901,LocalDate.of(2018, 01, 15), LocalDate.of(2018, 07, 14)
+","raise AccountIdException Display shouldbe 12 digit number
+",Fail,,Functional
+TC_ACCSUMMARY_02,User should be logged in,Validating the account Id & dates,Enter AccountId & dates,"123456789012,LocalDate.of(2018, 07, 14), LocalDate.of(2018, 01, 15)
+",raise DateException Display ToDate must be graeter than FromDate,Fail,,Functional
+TC_ACCSUMMARY_03,User should be logged in,Validating the account Id & dates,Enter AccountId & dates,"123456789012,LocalDate.of(2018, 01, 15), LocalDate.of(2020, 08 20)
+",raise DateException Display ToDate must be lessthen currentDate,Fail,,Functional
+TC_ACCSUMMARY_04,User should be logged in,Validating the account Id & dates,Enter AccountId & dates,"123456789012,LocalDate.of(2018, 01, 15), LocalDate.of(2019, 08 20)
+",Gets account transactions between that two dates,Pass,,Functional
