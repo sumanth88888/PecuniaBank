@@ -41,6 +41,7 @@ public class Account {
 	@Column(name = "branch_id", length = 15)
 	private String branch_id;
 	
+
 	public String getAccountId() {
 		return accountId;
 	}
@@ -81,4 +82,16 @@ public class Account {
 		this.branch_id = branch_id;
 	}
 
+	public Account(String accountId, Customer cust, double balance, String ifsc, String branch_id) {
+		super();
+		this.accountId = accountId;
+		this.cust = cust;
+		this.balance = balance;
+		this.ifsc = ifsc;
+		this.branch_id = branch_id;
+	}
+
+	public Account() {
+		super();
+	}
 }
