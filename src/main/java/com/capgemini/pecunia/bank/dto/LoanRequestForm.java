@@ -51,5 +51,18 @@ public class LoanRequestForm {
 	public void setCreditScore(int creditScore) {
 		this.creditScore = creditScore;
 	}
+	public LoanRequestForm(double loanAmt, int tenure, String accountId, String loanType, double annualIncome,
+			double rateOfInterest, int creditScore) {
+		super();
+		this.loanAmt = loanAmt;
+		this.tenure = tenure;
+		this.accountId = accountId;
+		this.loanType = loanType;
+		this.annualIncome = annualIncome;
+		this.rateOfInterest = rateOfInterest;
+		this.creditScore = creditScore;
+	}
+	
+	
 	
 }

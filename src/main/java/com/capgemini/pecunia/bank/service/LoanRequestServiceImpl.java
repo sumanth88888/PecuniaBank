@@ -33,7 +33,7 @@ public class LoanRequestServiceImpl implements LoanRequestService{
 		loanRequest.setLoanType(loanRequestForm.getLoanType());
 		loanRequest.setRateOfInterest(loanRequest.getRateOfInterest());
 		loanRequest.setAccount(account);
-		loanRequest.setLoanRequestStatus("Pending");
+		loanRequest.setLoanRequestStatus("pending");
 		loanRequestDao.addLoanDetails(loanRequest);
 		return loanRequestId;
 	}

@@ -30,9 +30,9 @@ public class LoanDisbursalServiceImpl implements LoanDisbursalService{
 	public boolean disburseLoanRequest(String loanRequestId) throws AccountNotFoundException {
 		LoanRequest loanRequest = loanDisbursalDao.getLoanRequest(loanRequestId);
 		Account account = loanRequest.getAccount();
-		if(account == null) {
-			throw new AccountNotFoundException(AccountConstants.INVALID_CUSTOMER);
-		}
+//		if(account == null) {
+//			throw new AccountNotFoundException(AccountConstants.INVALID_CUSTOMER);
+//		}
 		
 		if(loanRequest.getCreditScore()>670) {
 			loanRequest.setLoanRequestStatus(AccountConstants.ACCEPTED);
