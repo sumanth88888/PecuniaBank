@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.capgemini.pecunia.bank.dao.PbankDao;
 import com.capgemini.pecunia.bank.entity.Transaction;
@@ -14,8 +17,11 @@ import com.capgemini.pecunia.bank.exceptions.ValidateException;
 
 
 
+@Service
+@Transactional
 public class PBankServiceImpl implements PBankService{
 
+	
 	@Autowired
 	private PbankDao dao;
 
@@ -47,8 +53,7 @@ public class PBankServiceImpl implements PBankService{
 		return txnList;
 		
 	}
-	
-	
 
+	
 }
 

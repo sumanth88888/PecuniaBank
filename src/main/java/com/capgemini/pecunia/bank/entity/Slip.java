@@ -1,3 +1,4 @@
+
 package com.capgemini.pecunia.bank.entity;
 
 import java.time.LocalDate;
@@ -7,8 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="pecunia_bank_slip")
-public class Slip extends Transaction{
+
+@Table(name = "pecunia_bank_slip")
+public class Slip extends Transaction {
 
 	@Column(name = "slip_id")
 	private String slipId;
@@ -26,6 +28,7 @@ public class Slip extends Transaction{
 	 * @param account
 	 * @param slipId
 	 */
+
 	public Slip(String transactionId, String transactionType, double transactionAmount, LocalDate transactionDate,
 			String transactionStatus, Account account, String slipId) {
 		super(transactionId, transactionType, transactionAmount, transactionDate, transactionStatus, account);
@@ -35,6 +38,7 @@ public class Slip extends Transaction{
 	/**
 	 * @param slipId
 	 */
+
 	public Slip(String slipId) {
 		super();
 		this.slipId = slipId;
@@ -43,6 +47,7 @@ public class Slip extends Transaction{
 	/**
 	 * @return the slipId
 	 */
+
 	public String getSlipId() {
 		return slipId;
 	}
@@ -58,11 +63,5 @@ public class Slip extends Transaction{
 	public String toString() {
 		return "Slip [slipId=" + slipId + "]";
 	}
-	
-	
-	
-	
 
-	
-	
 }

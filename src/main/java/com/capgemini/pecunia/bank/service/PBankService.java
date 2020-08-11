@@ -15,5 +15,4 @@ public interface PBankService {
 	public List<Transaction> getBankTransactions(String UserId)throws ValidateException,PbankTXNNotFouException;
 	public List<Transaction> getBankTransactions(String UserId, LocalDate fromDt, LocalDate toDate)throws PbankTXNNotFouException,ValidateException,DateException;
 	
-
 }

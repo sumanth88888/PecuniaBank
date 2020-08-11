@@ -12,7 +12,7 @@ public class LDTConverter implements AttributeConverter<LocalDate,Date>{
 	@Override
 	public Date convertToDatabaseColumn(LocalDate ldt) {
 		if(ldt!=null)
-			return java.sql.Date.valueOf(ldt);//
+			return java.sql.Date.valueOf(ldt);
 		return null;
 	}
 

@@ -1,28 +1,28 @@
+
 package com.capgemini.pecunia.bank.entity;
 
 import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="pecunia_bank_cheque")
-public class Cheque extends Transaction{
-	
+
+@Table(name = "pecunia_bank_cheque")
+public class Cheque extends Transaction {
+
 	@Column(name = "cheque_id")
 	private String chequeId;
-	
+
 	@Column(name = "ifsc_code")
 	private String ifsc;
-	
+
 	@Column(name = "cheque_issue_date")
 	private LocalDate chequeIssueDate;
-	
+
 	@Column(name = "benificiary_account_number")
 	private String beneficiaryAccountNumber;
-	
 
 	public Cheque() {
 		super();
@@ -40,6 +40,7 @@ public class Cheque extends Transaction{
 	 * @param chequeIssueDate
 	 * @param beneficiaryAccountNumber
 	 */
+
 	public Cheque(String transactionId, String transactionType, double transactionAmount, LocalDate transactionDate,
 			String transactionStatus, Account account, String chequeId, String ifsc, LocalDate chequeIssueDate,
 			String beneficiaryAccountNumber) {
@@ -50,13 +51,13 @@ public class Cheque extends Transaction{
 		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 	}
 
-	
 	/**
 	 * @param chequeId
 	 * @param ifsc
 	 * @param chequeIssueDate
 	 * @param beneficiaryAccountNumber
 	 */
+
 	public Cheque(String chequeId, String ifsc, LocalDate chequeIssueDate, String beneficiaryAccountNumber) {
 		super();
 		this.chequeId = chequeId;
@@ -68,6 +69,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @return the chequeId
 	 */
+
 	public String getChequeId() {
 		return chequeId;
 	}
@@ -75,6 +77,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @param chequeId the chequeId to set
 	 */
+
 	public void setChequeId(String chequeId) {
 		this.chequeId = chequeId;
 	}
@@ -82,6 +85,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @return the ifsc
 	 */
+
 	public String getIfsc() {
 		return ifsc;
 	}
@@ -89,6 +93,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @param ifsc the ifsc to set
 	 */
+
 	public void setIfsc(String ifsc) {
 		this.ifsc = ifsc;
 	}
@@ -96,6 +101,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @return the chequeIssueDate
 	 */
+
 	public LocalDate getChequeIssueDate() {
 		return chequeIssueDate;
 	}
@@ -103,6 +109,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @param chequeIssueDate the chequeIssueDate to set
 	 */
+
 	public void setChequeIssueDate(LocalDate chequeIssueDate) {
 		this.chequeIssueDate = chequeIssueDate;
 	}
@@ -110,6 +117,7 @@ public class Cheque extends Transaction{
 	/**
 	 * @return the beneficiaryAccountNumber
 	 */
+
 	public String getBeneficiaryAccountNumber() {
 		return beneficiaryAccountNumber;
 	}
@@ -126,9 +134,5 @@ public class Cheque extends Transaction{
 		return "Cheque [chequeId=" + chequeId + ", ifsc=" + ifsc + ", chequeIssueDate=" + chequeIssueDate
 				+ ", beneficiaryAccountNumber=" + beneficiaryAccountNumber + "]";
 	}
-	
-	
-	
-	
 
 }

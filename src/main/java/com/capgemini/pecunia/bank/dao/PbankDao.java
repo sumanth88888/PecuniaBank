@@ -11,4 +11,5 @@ public interface PbankDao {
 
 	public List<Transaction> getBankTransactions(String UserId);
 	public List<Transaction> getBankTransactions(String UserId, LocalDate fromDt, LocalDate toDate);
+	
 }
