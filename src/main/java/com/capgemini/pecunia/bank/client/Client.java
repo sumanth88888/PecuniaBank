@@ -40,14 +40,14 @@ public class Client {
 //		acco.setCustomer(custom);
 //		acco.setIfsc("83583");
 
-//		TxnForm txnform=new TxnForm();
-//		txnform.setAccId("12345678");
-//		txnform.setAmount(100.0);
+		TxnForm txnform=new TxnForm();
+		txnform.setAccId("12345678");
+		txnform.setAmount(200.0);
 
-		Transfer transfer = new Transfer();
-		transfer.setAmount(100.0);
-		transfer.setFromAccId("12345677");
-		transfer.setToAccId("12345678");
+//		Transfer transfer = new Transfer();
+//		transfer.setAmount(100.0);
+//		transfer.setFromAccId("12345677");
+//		transfer.setToAccId("12345678");
 		// Account account = null; //account.setAccount_id(4596);
 
 //		 Slip slip=new Slip(64735373L, "Credit", 5000, LocalDate.now(), "Completed",
@@ -67,8 +67,8 @@ public class Client {
 		//service.addAccount(acco);
 //		 service.addCust(custom);
 		// service.addCheque(cheque);
-		 //service.creditUsingSlip(txnform);
-		service.creditUsingCheque(transfer);
+		 service.creditUsingSlip(txnform);
+		//service.creditUsingCheque(transfer);
 		System.out.println("Insert Complete");
 
 	}

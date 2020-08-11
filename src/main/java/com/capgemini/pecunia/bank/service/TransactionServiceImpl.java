@@ -3,6 +3,8 @@ package com.capgemini.pecunia.bank.service;
 
 import java.time.LocalDate;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.capgemini.pecunia.bank.util.walletConstants;
@@ -16,7 +18,7 @@ import com.capgemini.pecunia.bank.entity.Slip;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.TransactionException;
 
-@javax.transaction.Transactional
+@Transactional
 @Service("TransactionSer")
 public class TransactionServiceImpl implements TransactionService {
 
