@@ -1,7 +1,6 @@
 package com.capgemini.pecunia.bank.service;
 
 import com.capgemini.pecunia.bank.dto.LoanRequestForm;
-import com.capgemini.pecunia.bank.entity.LoanRequest;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 
 public interface LoanRequestService {

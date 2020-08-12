@@ -4,7 +4,7 @@ import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.entity.LoanRequest;
 
 public interface LoanRequestDao {
-	public String addLoanDetails(LoanRequest loanRequest);
+	public boolean addLoanDetails(LoanRequest loanRequest);
 	
 	public Account getAccount(String accountId);
 	

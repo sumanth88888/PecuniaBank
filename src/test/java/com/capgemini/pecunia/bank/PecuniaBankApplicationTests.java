@@ -94,8 +94,8 @@ public class PecuniaBankApplicationTests {
 	@Test
 	@DisplayName(value = "disbursed loan request")
 	public void disbursedLoanRequest() throws AccountNotFoundException {
-		when(loanDisbursalService.disburseLoanRequest("81460899982")).thenReturn(true);
-		assertEquals(true, loanDisbursalService.disburseLoanRequest("81460899982"));
+		when(loanDisbursalService.disburseLoanRequest("81460899982","accept")).thenReturn(true);
+		assertEquals(true, loanDisbursalService.disburseLoanRequest("81460899982","accept"));
 	}
 	
 	@Test
@@ -110,14 +110,14 @@ public class PecuniaBankApplicationTests {
 	public void loanDisbursedFailed() throws AccountNotFoundException {
 		when(loanDisbursalDao.getLoanRequest("81460899982")).thenReturn(loanRequest);
 		when(loanRequest.getAccount()).thenReturn(account);
-		assertEquals(false, loanDisbursalService.disburseLoanRequest("81460899982"));
+		assertEquals(false, loanDisbursalService.disburseLoanRequest("81460899982","accept"));
 	}
 	
 	@Test
 	@DisplayName(value = "disbursed loan request, exception thrown")
 	public void disbursedLoanRequestExceptionThrown() throws AccountNotFoundException {
-		when(loanDisbursalService.disburseLoanRequest("81460899982")).thenThrow(AccountNotFoundException.class);
-		assertEquals(true, loanDisbursalService.disburseLoanRequest("81460899982"));
+		when(loanDisbursalService.disburseLoanRequest("81460899982","accept")).thenThrow(AccountNotFoundException.class);
+		assertThrows(AccountNotFoundException.class, ()->loanDisbursalService.disburseLoanRequest("81460899982","accept"));
 	}
 	
 }

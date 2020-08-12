@@ -18,6 +18,16 @@ public class LoanRequestServiceImpl implements LoanRequestService{
 	@Autowired
 	private LoanRequestDao loanRequestDao;
 	
+
+	/*****************************************************************************
+	 * 
+	 * @Author Name  : sai sumanth
+	 * Method Name   : createLoanRequest
+	 * Description   : This method adds a loan request for given user details
+	 * @param  		 : LoanRequestForm
+	 * @return 	     : String
+	 * 
+	 ******************************************************************************/
 	@Override
 	public String createLoanRequest(LoanRequestForm loanRequestForm) throws AccountNotFoundException {
 		Account account = loanRequestDao.getAccount(loanRequestForm.getAccountId());
@@ -33,7 +43,7 @@ public class LoanRequestServiceImpl implements LoanRequestService{
 		loanRequest.setLoanType(loanRequestForm.getLoanType());
 		loanRequest.setRateOfInterest(loanRequest.getRateOfInterest());
 		loanRequest.setAccount(account);
-		loanRequest.setLoanRequestStatus("pending");
+		loanRequest.setLoanRequestStatus(AccountConstants.PENDING);
 		loanRequestDao.addLoanDetails(loanRequest);
 		return loanRequestId;
 	}

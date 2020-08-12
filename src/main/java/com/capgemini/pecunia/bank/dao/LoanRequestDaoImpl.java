@@ -15,16 +15,46 @@ public class LoanRequestDaoImpl implements LoanRequestDao{
 	@PersistenceContext
 	private EntityManager entityManager;
 	
+	/*****************************************************************************
+	 * 
+	 * @Author Name  : sai sumanth
+	 * Method Name   : addLoanDetails
+	 * Description   : This method adds loanRequest into the database
+	 * @param  		 : loanRequest
+	 * @return 	     : true if loanRequest is added into database
+	 * 
+	 ******************************************************************************/
+	
 	@Override
-	public String addLoanDetails(LoanRequest loanRequest) {
+	public boolean addLoanDetails(LoanRequest loanRequest) {
 		entityManager.persist(loanRequest);
-		return loanRequest.getLoanRequestId();
+		return true;
 	}
+	
+	/*****************************************************************************
+	 * 
+	 * @Author Name  : sai sumanth
+	 * Method Name   : getAccount
+	 * Description   : This method gets the account for the given accountId
+	 * @param  		 : accountId
+	 * @return 	     : Account instance
+	 * 
+	 ******************************************************************************/
 	
 	@Override
 	public Account getAccount(String accountId) {
 		return entityManager.find(Account.class, accountId);
 	}
+	
+	/*****************************************************************************
+	 * 
+	 * @Author Name  : sai sumanth
+	 * Method Name   : countLoansForCustomer
+	 * Description   : This method gets the number of previous loans for customer
+	 * @param  		 : accontId
+	 * @return 	     : long
+	 * 
+	 ******************************************************************************/
 	
 	@Override
 	public long countLoansForCustomer(String accountId) {
