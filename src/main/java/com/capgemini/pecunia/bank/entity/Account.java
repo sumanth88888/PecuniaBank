@@ -82,16 +82,4 @@ public class Account {
 		this.branch_id = branch_id;
 	}
 
-	public Account(String accountId, Customer cust, double balance, String ifsc, String branch_id) {
-		super();
-		this.accountId = accountId;
-		this.cust = cust;
-		this.balance = balance;
-		this.ifsc = ifsc;
-		this.branch_id = branch_id;
-	}
-
-	public Account() {
-		super();
-	}
 }

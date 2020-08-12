@@ -1,9 +1,5 @@
 package com.capgemini.pecunia.bank.dto;
 
-import java.time.LocalDate;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 /********************************************************************************************************
  *          @author          Rakesh Kuruva
  *          Description      It is a DTO(Data Transfer Object) class of AccountForm that is used to send
@@ -17,9 +13,6 @@ public class EditForm {
 	private String accountId;
 
 	private String customerName;
-	
-	@DateTimeFormat(pattern = "yyyy-M-d")
-	private LocalDate customerDob;
 	
     private String customerContact;
 	
@@ -47,14 +40,6 @@ public class EditForm {
 
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
-	}
-
-	public LocalDate getCustomerDob() {
-		return customerDob;
-	}
-
-	public void setCustomerDob(LocalDate customerDob) {
-		this.customerDob = customerDob;
 	}
 
 	public String getCustomerContact() {

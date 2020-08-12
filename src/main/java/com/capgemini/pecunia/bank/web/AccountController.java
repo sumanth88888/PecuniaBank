@@ -55,9 +55,10 @@ public class AccountController {
     
 	@CrossOrigin
 	@PutMapping("/editaccount")
-	public String editAccount(@RequestBody EditForm edtFrm, HttpServletRequest request) throws InvalidAccountException {
+	public AccountMessage editAccount(@RequestBody EditForm edtFrm, HttpServletRequest request) throws InvalidAccountException {
 		
-		return service.editAccount(edtFrm);
+		service.editAccount(edtFrm);
+		return new AccountMessage(AccountConstants.ACCOUNT_EDITED);
 		
 	}
 	

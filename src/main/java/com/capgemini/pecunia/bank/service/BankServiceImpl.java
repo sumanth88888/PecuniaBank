@@ -41,7 +41,6 @@ public class BankServiceImpl implements BankService{
 		  Customer cust = new Customer();
 		  
 		  cust.setCname(edtFrm.getCustomerName());
-		  cust.setDOB(edtFrm.getCustomerDob());
 		  cust.setContact(edtFrm.getCustomerContact());
 		  cust.setAddress(edtFrm.getCustomerAddress());
 		  cust.setCity(edtFrm.getCustomerCity());

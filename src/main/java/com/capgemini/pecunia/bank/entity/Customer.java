@@ -146,24 +146,5 @@ public class Customer {
 		this.gender = gender;
 	}
 	
-	public Customer(String aadharNumber, String cname, String contact, String pAN, LocalDate dOB, String address,
-			String state, String city, String country, long zipcode, String gender) {
-		super();
-		this.aadharNumber = aadharNumber;
-		this.cname = cname;
-		this.contact = contact;
-		PAN = pAN;
-		DOB = dOB;
-		this.address = address;
-		this.state = state;
-		this.city = city;
-		this.country = country;
-		this.zipcode = zipcode;
-		this.gender = gender;
-	}
-
-	public Customer() {
-		super();
-	}
 
 }
