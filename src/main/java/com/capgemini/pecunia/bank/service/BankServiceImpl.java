@@ -104,15 +104,18 @@ public class BankServiceImpl implements BankService{
 			if (customer == null)
 				throw new InvalidCustomerException(AccountConstants.CUSTOMER_NOT_FOUND);
 			
-			LocalDate today = LocalDate.now();
-			String id = bankForm.getCustomerAadhar().substring(10)+today.toString();
+			String id = LocalDate.now().toString().substring(2,4)
+						+LocalDate.now().toString().substring(5,7)
+						+LocalDate.now().toString().substring(8)
+						+bankForm.getCustomerAadhar().substring(10);
+			
 			account.setAccountId(id);
 			account.setCust(customer);
 			account.setBalance(bankForm.getAcc_bal());
 			account.setIfsc(bankForm.getIfscCode());
 			account.setBranch_id(bankForm.getBranchCode());
 			dao.addAccount(account);
-		    return AccountConstants.ACCOUNT_CREATED + AccountConstants.GENERATED_ACCOUNT + account.getAccountId();
+		    return id;
 	}
 
 	
