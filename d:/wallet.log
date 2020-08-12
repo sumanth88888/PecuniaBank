@@ -148,3 +148,28 @@
 2020-08-12 10:35:46 [main] INFO  o.s.t.c.t.TransactionContext - Rolled back transaction for test: [DefaultTestContext@74e52303 testClass = TransactionTestTesting, testInstance = com.capgemini.pecunia.bank.service.TransactionTestTesting@11ca8f71, testMethod = testCreditUsingCheque@TransactionTestTesting, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@47af7f3d testClass = TransactionTestTesting, locations = '{}', classes = '{class com.capgemini.pecunia.bank.PecuniaBankApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1e6d1014, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1f554b06, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@15d0c81b, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@5faeada1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true]]
 2020-08-12 10:35:46 [Thread-2] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
 2020-08-12 10:35:46 [Thread-2] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-08-12 19:18:07 [main] ERROR o.s.b.c.l.LoggingApplicationListener - Cannot set level '=debug' for 'null'
+2020-08-12 19:18:07 [main] INFO  c.c.p.bank.PecuniaBankApplication - Starting PecuniaBankApplication on lovaraju-Inspiron-15-3567 with PID 13436 (/home/lovaraju/git/PecuniaBank/target/classes started by lovaraju in /home/lovaraju/git/PecuniaBank)
+2020-08-12 19:18:07 [main] INFO  c.c.p.bank.PecuniaBankApplication - No active profile set, falling back to default profiles: default
+2020-08-12 19:18:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-12 19:18:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101ms. Found 0 JPA repository interfaces.
+2020-08-12 19:18:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+2020-08-12 19:18:18 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-12 19:18:18 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-12 19:18:18 [main] INFO  o.a.c.c.C.[.[localhost].[/pecunia] - Initializing Spring embedded WebApplicationContext
+2020-08-12 19:18:18 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 11285 ms
+2020-08-12 19:18:19 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-08-12 19:18:20 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.17.Final}
+2020-08-12 19:18:20 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2020-08-12 19:18:22 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-08-12 19:18:32 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-08-12 19:18:48 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-12 19:18:50 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-12 19:18:50 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-12 19:18:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path '/pecunia'
+2020-08-12 19:18:50 [main] INFO  c.c.p.bank.PecuniaBankApplication - Started PecuniaBankApplication in 43.941 seconds (JVM running for 50.796)
+2020-08-12 19:19:04 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2020-08-12 19:19:04 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-12 19:19:04 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'

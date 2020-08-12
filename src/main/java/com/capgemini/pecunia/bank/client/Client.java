@@ -69,7 +69,7 @@ public class Client {
 		// service.addCheque(cheque);
 		// service.creditUsingSlip(txnform);
 		//service.creditUsingCheque(transfer);
-		System.out.println("Insert Complete");
+		
 
 	}
 }
