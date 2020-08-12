@@ -16,29 +16,29 @@ import com.capgemini.pecunia.bank.exceptions.DateException;
 import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
 import com.capgemini.pecunia.bank.exceptions.ValidateException;
 import com.capgemini.pecunia.bank.service.PBankService;
+
+@RestController
 public class PassBookController {
 
-	@RestController
-	public class WalletViewcontroller {
+
+	
 
 		@Autowired
 		private PBankService service;
 
 		@CrossOrigin
 		@GetMapping("/getBankTransactions/{userId}")
-		public List<Transaction> getBankTransactions(@PathVariable("userId") String UserId)
+		public List<Transaction> passbookUpdate(@PathVariable("userId") String userId)
 				throws ValidateException, PbankTXNNotFouException {
-			return service.getBankTransactions(UserId);
+			return service.passbookUpdate(userId);
 		}
 
 		@CrossOrigin
 		@PostMapping("/getBankTxnsForDateRange")
-		public List<Transaction> getBankTransactions(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
+		public List<Transaction> accountSummary(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
 
-			return service.getBankTransactions(form.getUserId(), form.getFromDt(), form.getToDt());
+			return service.accountSummary(form.getUserId(), form.getFromDt(), form.getToDt());
 		}
-		
-		
 
+		
 	}
-}

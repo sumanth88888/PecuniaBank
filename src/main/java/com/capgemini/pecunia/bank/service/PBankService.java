@@ -12,7 +12,7 @@ import com.capgemini.pecunia.bank.exceptions.ValidateException;
 
 public interface PBankService {
 	
-	public List<Transaction> getBankTransactions(String UserId)throws ValidateException,PbankTXNNotFouException;
-	public List<Transaction> getBankTransactions(String UserId, LocalDate fromDt, LocalDate toDate)throws PbankTXNNotFouException,ValidateException,DateException;
+	public List<Transaction> passbookUpdate(String userId)throws ValidateException,PbankTXNNotFouException;
+	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate)throws PbankTXNNotFouException,ValidateException,DateException;
 	
 }

@@ -16,8 +16,8 @@ public class ReportForm {
 	public String getUserId() {
 		return UserId;
 	}
-	public void setUserId(String walletId) {
-		this.UserId = walletId;
+	public void setUserId(String userId) {
+		this.UserId = userId;
 	}
 	public String getReceipentId() {
 		return receipentId;

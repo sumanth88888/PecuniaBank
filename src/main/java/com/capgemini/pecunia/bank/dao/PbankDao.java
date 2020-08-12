@@ -9,7 +9,7 @@ import com.capgemini.pecunia.bank.entity.Transaction;
 
 public interface PbankDao {
 
-	public List<Transaction> getBankTransactions(String UserId);
-	public List<Transaction> getBankTransactions(String UserId, LocalDate fromDt, LocalDate toDate);
+	public List<Transaction> passbookUpdate(String userId);
+	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate);
 	
 }

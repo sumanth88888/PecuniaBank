@@ -32,40 +32,40 @@ public class PecuniaBankApplicationTests {
 	@DisplayName("Test for accout exist ")
 	public void Test1() {
 
-		when(dao.getBankTransactions("123456654322")).thenReturn(null);
-		assertEquals(null, dao.getBankTransactions("123456654322"));
+		when(dao.passbookUpdate("123456654322")).thenReturn(null);
+		assertEquals(null, dao.passbookUpdate("123456654322"));
 
 	}
 
 	@Test
 	@DisplayName("Test for user given accId")
 	public void Test2() throws ValidateException, PbankTXNNotFouException {
-		when(service.getBankTransactions("0")).thenReturn(null);
-		assertEquals(null, service.getBankTransactions("0"));
+		when(service.passbookUpdate(null)).thenReturn(null);
+		assertEquals(null, service.passbookUpdate(null));
 	}
 
 	@Test
 	@DisplayName("Test for user given accId")
 	public void Test3() throws ValidateException, PbankTXNNotFouException {
 
-		when(service.getBankTransactions("1234566543")).thenReturn(null);
-		assertEquals(null, service.getBankTransactions("1234566543"));
+		when(service.passbookUpdate("1234566543")).thenReturn(null);
+		assertEquals(null, service.passbookUpdate("1234566543"));
 	}
 
 	@Test
 	@DisplayName("Test for user given accId")
 	public void Test4() throws ValidateException, PbankTXNNotFouException {
 
-		when(service.getBankTransactions("-123456654322")).thenReturn(null);
-		assertEquals(null, service.getBankTransactions("-123456654322"));
+		when(service.passbookUpdate("-123456654322")).thenReturn(null);
+		assertEquals(null, service.passbookUpdate("-123456654322"));
 	}
 
 	@Test
 	@DisplayName("Test for user given accId")
 	public void Test5() throws ValidateException, PbankTXNNotFouException {
 
-		when(service.getBankTransactions("12345665432")).thenThrow(ValidateException.class);
-		assertThrows(ValidateException.class, () -> service.getBankTransactions("12345665432"));
+		when(service.passbookUpdate("12345665432")).thenThrow(ValidateException.class);
+		assertThrows(ValidateException.class, () -> service.passbookUpdate("12345665432"));
 
 	}
 
@@ -73,9 +73,9 @@ public class PecuniaBankApplicationTests {
 	@DisplayName("Test for user given Dates")
 	public void Test6() throws ValidateException, PbankTXNNotFouException, DateException {
 
-		when(service.getBankTransactions("123456654321", LocalDate.of(2020, 01, 15), LocalDate.of(2019, 07, 14)))
+		when(service.accountSummary("123456654321", LocalDate.of(2020, 01, 15), LocalDate.of(2019, 07, 14)))
 				.thenThrow(DateException.class);
-		assertThrows(DateException.class, () -> service.getBankTransactions("123456654321", LocalDate.of(2020, 01, 15),
+		assertThrows(DateException.class, () -> service.accountSummary("123456654321", LocalDate.of(2020, 01, 15),
 				LocalDate.of(2019, 07, 14)));
 
 	}
@@ -84,9 +84,9 @@ public class PecuniaBankApplicationTests {
 	@DisplayName("Test transactions for user given accId")
 	public void Test7() throws ValidateException, PbankTXNNotFouException, DateException {
 
-		when(service.getBankTransactions("123456654321", LocalDate.of(2019, 07, 14), LocalDate.of(2020, 01, 15)))
+		when(service.accountSummary("123456654321", LocalDate.of(2019, 07, 14), LocalDate.of(2020, 01, 15)))
 				.thenThrow(PbankTXNNotFouException.class);
-		assertThrows(PbankTXNNotFouException.class, () -> service.getBankTransactions("123456654321",
+		assertThrows(PbankTXNNotFouException.class, () -> service.accountSummary("123456654321",
 				LocalDate.of(2019, 07, 14), LocalDate.of(2020, 01, 15)));
 
 	}
