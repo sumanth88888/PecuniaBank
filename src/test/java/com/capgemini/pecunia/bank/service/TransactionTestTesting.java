@@ -132,6 +132,7 @@ public class TransactionTestTesting {
 	 * through cheque from database
 	 */
 
+	
 	@Test
 	public void testCreditUsingCheque() throws Exception {
 
