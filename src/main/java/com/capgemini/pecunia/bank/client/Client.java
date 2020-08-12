@@ -17,7 +17,7 @@ import com.capgemini.pecunia.bank.service.TransactionService;
 public class Client {
 	public static void main(String[] args) throws AccountNotFoundException, TransactionException {
 
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(JpaConfiguration.class);
+		//ApplicationContext ctx = new AnnotationConfigApplicationContext(JpaConfiguration.class);
 		
 //		Customer custom = new Customer();
 //		custom.setAadharNumber("622644");
@@ -62,12 +62,12 @@ public class Client {
 		 * "SBIN00856", LocalDate.of(2020, 04, 15), "985");
 		 */
 		
-		TransactionService service = ctx.getBean(TransactionService.class);
+		//TransactionService service = ctx.getBean(TransactionService.class);
 
 		//service.addAccount(acco);
 //		 service.addCust(custom);
 		// service.addCheque(cheque);
-		 service.creditUsingSlip(txnform);
+		// service.creditUsingSlip(txnform);
 		//service.creditUsingCheque(transfer);
 		System.out.println("Insert Complete");
 

@@ -19,13 +19,13 @@ public interface TransactionService {
 
 	public Boolean debitUsingCheque(TxnForm txnform) throws AccountNotFoundException,TransactionException;
 
-	public Boolean addSlip(Slip slip);
-
-	public boolean addCust(Customer cust);
-
-	public boolean addCheque(Cheque cheque);
-	
-	public boolean addAccount(Account account);
+//	public Boolean addSlip(Slip slip);
+//
+//	public boolean addCust(Customer cust);
+//
+//	public boolean addCheque(Cheque cheque);
+//	
+//	public boolean addAccount(Account account);
 
 	
 	

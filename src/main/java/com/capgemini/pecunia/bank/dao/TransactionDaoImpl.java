@@ -34,28 +34,28 @@ public class TransactionDaoImpl implements TransactionDao {
 	 * Auto-generated method stub return null; }
 	 */
 
-	@Override
-	public int generateChequeId(Cheque cheque) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int generateTransactionId(Transaction transaction) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int generateChequeId(Cheque cheque) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int generateTransactionId(Transaction transaction) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	
 
-	@Override
-	public Boolean addTransaction(Transaction transaction) {
-		
-		em.persist(transaction);
-		return true;
-		
-	}
-	
+//	@Override
+//	public Boolean addTransaction(Transaction transaction) {
+//		
+//		em.persist(transaction);
+//		return true;
+//		
+//	}
+//	
 	
 	
 	public boolean addSlip(Slip slip) {
@@ -73,11 +73,11 @@ public class TransactionDaoImpl implements TransactionDao {
 		return true;
 	}
 
-	@Override
-	public boolean addAccount(Account account) {
-		em.persist(account);
-		return true;
-	}
-	
+//	@Override
+//	public boolean addAccount(Account account) {
+//		em.persist(account);
+//		return true;
+//	}
+//	
 	
 }

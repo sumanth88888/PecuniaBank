@@ -102,7 +102,7 @@ public class TransactionTestTesting {
 	public void testCreditUsingSlipss() throws Exception {
 
 		logger.info("Validation for creditUsingSlip From Database");
-		txnform.setAccId("6483638363");
+		txnform.setAccId("987654321");
 		txnform.setAmount(2500.00);
 		boolean result = transactionService.creditUsingSlip(txnform);
 

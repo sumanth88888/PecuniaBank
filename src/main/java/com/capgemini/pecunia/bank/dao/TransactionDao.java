@@ -19,17 +19,17 @@ public interface TransactionDao {
 	/*
 	 * public Boolean updateBalance(Account account);
 	 */
-	public int generateChequeId(Cheque cheque);
-
-	public int generateTransactionId(Transaction transaction);
-
-	public Boolean addTransaction(Transaction transaction);
-
-	public boolean addCustomer(Customer cust);
-
+//	public int generateChequeId(Cheque cheque);
+//
+//	public int generateTransactionId(Transaction transaction);
+//
+//	public Boolean addTransaction(Transaction transaction);
+//
+//	public boolean addCustomer(Customer cust);
+//
 	public boolean addSlip(Slip slip);
 
 	public boolean addCheque(Cheque cheque);
-	
-	public boolean addAccount(Account account);
+//	
+//	public boolean addAccount(Account account);
 }
