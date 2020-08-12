@@ -19,6 +19,7 @@ import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.exceptions.InvalidAccountException;
 import com.capgemini.pecunia.bank.exceptions.InvalidCustomerException;
 import com.capgemini.pecunia.bank.service.BankService;
+import com.capgemini.pecunia.bank.util.AccountConstants;
 
 @DisplayName(value = "TestCases of Pecunia Bank")
 @RunWith(MockitoJUnitRunner.class)
@@ -54,7 +55,7 @@ public class PecuniaBankAppTest {
 	@Test
 	@DisplayName(value = "Editing an account")
 	public void editAccount() throws InvalidAccountException {
-		when(bankService.editAccount(editForm)).thenReturn(true);
+		when(bankService.editAccount(editForm)).thenReturn(AccountConstants.ACCOUNT_EDITED);
 		assertEquals(true, bankService.editAccount(editForm));
 	}
 	

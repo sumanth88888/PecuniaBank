@@ -55,7 +55,7 @@ public class AccountController {
     
 	@CrossOrigin
 	@PutMapping("/editaccount")
-	public boolean editAccount(@RequestBody EditForm edtFrm, HttpServletRequest request) throws InvalidAccountException {
+	public String editAccount(@RequestBody EditForm edtFrm, HttpServletRequest request) throws InvalidAccountException {
 		
 		return service.editAccount(edtFrm);
 		
@@ -64,7 +64,7 @@ public class AccountController {
 
 
 	@CrossOrigin
-	@DeleteMapping("/viewaccountbyaccid/{accId}")
+	@GetMapping("/viewaccountbyaccid/{accId}")
 	public Account viewAccount(@PathVariable("accId") String accId, HttpServletRequest request)
 			throws InvalidAccountException {
 	      
@@ -81,9 +81,5 @@ public class AccountController {
 		return new AccountMessage(AccountConstants.ACCOUNT_REMOVED);
 		
 		}
-	@CrossOrigin
-	@GetMapping("/string")
-	public String getStringg() {
-		return "rakesh";
-	}
+	
 }

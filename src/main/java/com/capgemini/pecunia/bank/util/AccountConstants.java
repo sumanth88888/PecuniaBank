@@ -16,7 +16,7 @@ public class AccountConstants {
 	public static final String ACCOUNT_CREATED = "Account Created Successfully.";
 	public static final String ACCOUNT_REMOVED = "Account REMOVED Successfully";
 	
-	public static final String CUSTOMER_EDITED = "Customer Edited Successfully.";
+	public static final String ACCOUNT_EDITED = "Account Details Edited Successfully.";
 	
 	public static final String INSUFFICIENT_BALANCE = "Insufficient Balance";
 	public static final String INVALID_ACCOUNT = "Invalid Account";

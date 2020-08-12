@@ -32,7 +32,7 @@ public class BankServiceImpl implements BankService{
 	private BankDao dao;
 	
 	@Override
-	public boolean editAccount( EditForm edtFrm) throws InvalidAccountException {
+	public String editAccount( EditForm edtFrm) throws InvalidAccountException {
 		
         Account acc = dao.viewAccount(edtFrm.getAccountId());
 		  
@@ -48,8 +48,9 @@ public class BankServiceImpl implements BankService{
 		  cust.setState(edtFrm.getCustomerState());
 		  cust.setCountry(edtFrm.getCustomerCountry());
 		  cust.setZipcode(edtFrm.getCustomerZipCode());
-		  
-		  return true;
+		  dao.editAccount(acc);
+		  dao.editCustomer(cust);
+		  return AccountConstants.ACCOUNT_EDITED;
 		  
 		
 	}

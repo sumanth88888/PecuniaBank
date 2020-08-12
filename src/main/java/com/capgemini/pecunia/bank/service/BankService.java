@@ -17,7 +17,7 @@ import com.capgemini.pecunia.bank.exceptions.InvalidCustomerException;
 
 public interface BankService {
 
-	public boolean editAccount(EditForm edtfrm) throws InvalidAccountException;
+	public String editAccount(EditForm edtfrm) throws InvalidAccountException;
 	
 	public boolean deleteAccount(String accountId) throws InvalidAccountException;
 

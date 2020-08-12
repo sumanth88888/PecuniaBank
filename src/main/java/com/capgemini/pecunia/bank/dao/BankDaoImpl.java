@@ -68,6 +68,13 @@ public class BankDaoImpl implements BankDao{
 		return em.find(Customer.class, aadhar_number);
 	}
 
+	@Override
+	public boolean editCustomer(Customer customer) {
+		
+		em.merge(customer);
+		return true;
+	}
+
 	
 
 }

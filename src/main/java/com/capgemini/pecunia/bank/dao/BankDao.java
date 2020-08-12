@@ -19,6 +19,8 @@ public interface BankDao {
 		
 		public boolean editAccount(Account account);
 		
+		public boolean editCustomer(Customer customer);
+		
 		public boolean deleteCustomer(Customer cust);
 		
 		public boolean deleteAccount(Account account);
