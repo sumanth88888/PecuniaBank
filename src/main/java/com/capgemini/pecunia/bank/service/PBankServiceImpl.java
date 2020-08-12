@@ -25,6 +25,17 @@ public class PBankServiceImpl implements PBankService{
 	@Autowired
 	private PbankDao dao;
 
+	
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : passbookUpdate
+	 * Description   : getting transactions of given user's UserId 
+	 * Return Type   : List(List of Transactions)
+	 * Parameter     : String USerId
+	 * @throws       : ValidateException,PbankTXNNotFouException
+	 * 
+	 **********************************************************************************/
 	@Override
 	public List<Transaction> passbookUpdate(String userId)
 			throws  ValidateException,PbankTXNNotFouException {
@@ -38,6 +49,17 @@ public class PBankServiceImpl implements PBankService{
 		return txnList;
 	}
 
+	
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : accountSummary
+	 * Description   : getting transactions of given user's UserId between given dates
+	 * Return Type   : List(List of Transactions)
+	 * Parameters    : String UserId,LocalDate fromDt, LocalDate toDate
+	 * @throws       : PbankTXNNotFouException,ValidateException,DateException
+	 * 
+	 **********************************************************************************/
 	@Override
 	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate)
 			throws  ValidateException,PbankTXNNotFouException,DateException{
@@ -56,9 +78,26 @@ public class PBankServiceImpl implements PBankService{
 		
 	}
 
+	
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : getBankTransactions
+	 * Description   : getting transactions of given user's UserId with limited transactions
+	 * Return Type   : List(List of Transactions)
+	 * Parameter 1   : String UserId,int txns
+	 * @throws       : ValidateException, PbankTXNNotFouException
+	 * 
+	 **********************************************************************************/
 	@Override
-	public List<Transaction> getBankTransactions(String UserId, int txns) {
-		List<Transaction> txnList =  dao.getBankTransactions(UserId, txns);
+	public List<Transaction> getBankTransactions(String userId, int txns) throws ValidateException, PbankTXNNotFouException {
+		if (!userId.matches("[0-9]{12}"))
+			throw new ValidateException("Account ID must be 12 digit");
+		
+		List<Transaction> txnList =  dao.getBankTransactions(userId, txns);
+		
+		if(txnList.isEmpty())
+			throw new PbankTXNNotFouException("No Transaction available.");
 		return txnList;
 	}
 

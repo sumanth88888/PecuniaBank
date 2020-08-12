@@ -17,6 +17,15 @@ public class PbankDaoImpl implements PbankDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : passbookUpdate
+	 * Description   : getting transactions of given user's UserId 
+	 * Return Type   : List(List of Transactions)
+	 * Parameter 1   : String UserId
+	 * 
+	 **********************************************************************************/
 	@Override
 	public List<Transaction> passbookUpdate(String userId) {
 		String jpql = "from Transaction txns inner join fetch txns.account acc " 
@@ -26,10 +35,21 @@ public class PbankDaoImpl implements PbankDao {
 		return query.getResultList();
 	}
 
+	
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : accountSummary
+	 * Description   : getting transactions of given user's UserId between given dates
+	 * Return Type   : List(List of Transactions)
+	 * Parameters    : String userId, LocalDate fromDt, LocalDate toDate
+	 * 
+	 **********************************************************************************/
 	@Override
 	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate) {
-		String jpql = "from Transaction txns inner join fetch txns.account acc  "
-				+ "where acc.accountId=:userid and txns.transactionDate between :fromdt and :todt ";
+		String jpql = "from Transaction txns inner join fetch txns.account acc "
+				+ "where acc.accountId=:userid and txns.transactionDate between :fromdt and :todt order by txns.transactionId desc";
+		
 		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
 		query.setParameter("userid", userId);
 		query.setParameter("fromdt", fromDt);
@@ -38,13 +58,22 @@ public class PbankDaoImpl implements PbankDao {
 	}
 
 
-	public List<Transaction> getBankTransactions(String UserId, int txns) {
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : getBankTransactions
+	 * Description   : getting transactions of given user's UserId with limited transactions
+	 * Return Type   : List(List of Transactions)
+	 * Parameters    : String UserId, int txns
+	 * 
+	 **********************************************************************************/
+	public List<Transaction> getBankTransactions(String userId, int txns) {
 		String jpql = "from Transaction txns inner join fetch txns.account acc"
 				+ " where acc.accountId=:userid order by txns.transactionDate desc";
 		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
 		query.setFirstResult(1);
 		query.setMaxResults(txns);
-		query.setParameter("userid", UserId);
+		query.setParameter("userid", userId);
 		return query.getResultList();
 	}
 

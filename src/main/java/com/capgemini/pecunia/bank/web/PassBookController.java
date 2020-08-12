@@ -17,6 +17,12 @@ import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
 import com.capgemini.pecunia.bank.exceptions.ValidateException;
 import com.capgemini.pecunia.bank.service.PBankService;
 
+/**********************************************************************************
+ * 
+ * @Author Name  : venkata sai kumar
+ * Description   : Dispatcherservlet maps the request to handler method for viewing passbook
+ * 
+ **********************************************************************************/
 @RestController
 public class PassBookController {
 
@@ -24,6 +30,16 @@ public class PassBookController {
 		@Autowired
 		private PBankService service;
 
+		/**********************************************************************************
+		 * 
+		 * @Author Name  : venkata sai kumar
+		 * Method Name   : passbookUpdate
+		 * Description   : getting transactions of given user's UserId 
+		 * Return Type   : List(List of Transactions)
+		 * Parameter     : String USerId
+		 * @throws       : ValidateException, PbankTXNNotFouException
+		 * 
+		 **********************************************************************************/
 		@CrossOrigin
 		@GetMapping("/getBankTransactions/{userId}")
 		public List<Transaction> passbookUpdate(@PathVariable("userId") String userId)
@@ -31,6 +47,17 @@ public class PassBookController {
 			return service.passbookUpdate(userId);
 		}
 
+		
+		/**********************************************************************************
+		 * 
+		 * @Author Name  : venkata sai kumar
+		 * Method Name   : accountSummary
+		 * Description   : getting transactions of given user's UserId between given dates
+		 * Return Type   : List(List of Transactions)
+		 * Parameter     : String UserId,LocalDate fromDt, LocalDate toDate
+		 * @throws       : PbankTXNNotFouException, ValidateException, DateException
+		 * 
+		 **********************************************************************************/
 		@CrossOrigin
 		@PostMapping("/getBankTxnsForDateRange")
 		public List<Transaction> accountSummary(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
@@ -38,9 +65,19 @@ public class PassBookController {
 			return service.accountSummary(form.getUserId(), form.getFromDt(), form.getToDt());
 		}
 
+		/**********************************************************************************
+		 * 
+		 * @Author Name  : venkata sai kumar
+		 * Method Name   : getBankTransactions
+		 * Description   : getting transactions of given user's UserId with limited transactions
+		 * Return Type   : List(List of Transactions)
+		 * Parameter 1   : String UserId,int txns
+		 * @throws       : ValidateException, PbankTXNNotFouException
+		 * 
+		 **********************************************************************************/
 		@CrossOrigin
 		@GetMapping("/getBankTxnsLimit/{userId}/{txns}")
-		public List<Transaction> getBankTransaction(@PathVariable("userId") String userId,@PathVariable("txns")int txns ) {
+		public List<Transaction> getBankTransaction(@PathVariable("userId") String userId,@PathVariable("txns")int txns ) throws ValidateException, PbankTXNNotFouException {
 
 			return service.getBankTransactions(userId, txns);
 		}
