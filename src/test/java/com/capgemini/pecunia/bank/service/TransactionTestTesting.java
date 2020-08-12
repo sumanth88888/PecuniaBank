@@ -103,7 +103,7 @@ public class TransactionTestTesting {
 
 		logger.info("Validation for creditUsingSlip From Database");
 		txnform.setAccId("987654321");
-		txnform.setAmount(2500.00);
+		txnform.setAmount(500.00);
 		boolean result = transactionService.creditUsingSlip(txnform);
 
 		assertEquals(result, message);
@@ -119,8 +119,8 @@ public class TransactionTestTesting {
 	public void testDebitUsingSlipss() throws Exception {
 
 		logger.info("Validation for DebitUsingSlip From Database");
-		txnform.setAccId("73228665");
-		txnform.setAmount(500.00);
+		txnform.setAccId("66646578564");
+		txnform.setAmount(100.00);
 		boolean result = transactionService.debitUsingSlip(txnform);
 
 		assertEquals(result, message);
@@ -138,9 +138,9 @@ public class TransactionTestTesting {
 	public void testCreditUsingCheque() throws Exception {
 
 		logger.info("Validation for creditUsingCheque From Database");
-		transfer.setFromAccId("73228665");
-		transfer.setToAccId("7322866");
-		transfer.setAmount(5000.00);
+		transfer.setFromAccId("8656453");
+		transfer.setToAccId("686844");
+		transfer.setAmount(1000.00);
 
 		boolean result = transactionService.creditUsingCheque(transfer);
 
@@ -157,8 +157,8 @@ public class TransactionTestTesting {
 	public void testDebitUsingChequee() throws Exception {
 
 		logger.info("Validation for DebitUsingCheque From Database");
-		txnform.setAccId("73228665");
-		txnform.setAmount(500.00);
+		txnform.setAccId("9765444");
+		txnform.setAmount(200.00);
 
 		boolean result = transactionService.debitUsingCheque(txnform);
 

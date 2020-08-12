@@ -29,7 +29,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	/****************************
 	 * Method: Debit Money through Slip
-                *Description: To withdrawal money from an account
+                *Description: To withdraw money from an account
 	 * Slip Details       -Account Number,Amount 
 	 
 	 * @throws AccountNotFoundException, TransactionException - It is raised due to insufficient balance or invalid account Id or  
@@ -40,7 +40,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 
 	@Override
-	public Boolean debitUsingSlip(TxnForm txnform) throws AccountNotFoundException, TransactionException {
+	public boolean debitUsingSlip(TxnForm txnform) throws AccountNotFoundException, TransactionException {
 		Account fromAcc = dao.getAccount(txnform.getAccId());
 		if (fromAcc == null)
 			throw new AccountNotFoundException(walletConstants.INVALID_ACCOUNT);
@@ -58,7 +58,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	/****************************
 	 * Method: Debit Money through Cheque
-                *Description: To withdrawal money from an account
+                *Description: To withdraw money from an account
 	 * Slip Details       -Account Number,Amount 
 	 
 	 * @throws AccountNotFoundException, TransactionException - It is raised due to insufficient balance or invalid account Id or  
@@ -68,7 +68,7 @@ public class TransactionServiceImpl implements TransactionService {
 	 ****************************/
 	
 	@Override
-	public Boolean debitUsingCheque(TxnForm txnform) throws AccountNotFoundException, TransactionException {
+	public boolean debitUsingCheque(TxnForm txnform) throws AccountNotFoundException, TransactionException {
 		Account fromAcc = dao.getAccount(txnform.getAccId());
 		if (fromAcc == null)
 			throw new AccountNotFoundException(walletConstants.INVALID_ACCOUNT);
@@ -98,7 +98,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 
 	@Override
-	public Boolean creditUsingCheque(Transfer transfer) throws AccountNotFoundException, TransactionException {
+	public boolean creditUsingCheque(Transfer transfer) throws AccountNotFoundException, TransactionException {
 		// creating fromAcc instance
 		Account fromAcc = dao.getAccount(transfer.getFromAccId());
 		if (fromAcc == null)
@@ -135,7 +135,7 @@ public class TransactionServiceImpl implements TransactionService {
 	 ****************************/
 	
 	@Override
-	public Boolean creditUsingSlip(TxnForm txnform) throws AccountNotFoundException {
+	public boolean creditUsingSlip(TxnForm txnform) throws AccountNotFoundException {
 		Account toAcc = dao.getAccount(txnform.getAccId());
 		if (toAcc == null)
 			throw new AccountNotFoundException(walletConstants.INVALID_ACCOUNT);
@@ -151,7 +151,7 @@ public class TransactionServiceImpl implements TransactionService {
 
 	/****************************
 	 * Method:Transaction with Slip
-                *Description: To withdrawal & Add money from an account  and adding details to slip class to store in database
+                *Description: To withdraw & Add money from an account  and adding details to slip class to store in database
 	 * Slip Details       -transactionType, transactionAmount,transactionDate, transactionStatus, Account,slipId 
 	 
 	                  
@@ -159,7 +159,7 @@ public class TransactionServiceImpl implements TransactionService {
 	 ****************************/	
 	
 
-	public Boolean TxnWithSlip(String transactionType, double transactionAmount,
+	public boolean TxnWithSlip(String transactionType, double transactionAmount,
 			LocalDate transactionDate, String transactionStatus, Account account, Long slipId) {
 		Slip slip = new Slip();
 		//slip.setTransactionId(transactionId);
@@ -184,7 +184,7 @@ public class TransactionServiceImpl implements TransactionService {
 	 
 	 ****************************/	
 
-	public Boolean TxnWithCheque( String transactionType, double transactionAmount,
+	public boolean TxnWithCheque( String transactionType, double transactionAmount,
 			LocalDate transactionDate, String transactionStatus, Account account, Long chequeId, String ifsc,
 			LocalDate chequeIssueDate, String beneficiaryAccountNumber) {
 		Cheque cheque = new Cheque();
@@ -215,7 +215,7 @@ public class TransactionServiceImpl implements TransactionService {
 //	}
 
 //	@Override
-//	public Boolean addSlip(Slip slip) {
+//	public boolean addSlip(Slip slip) {
 //		dao.addSlip(slip);
 //		return true;
 //	}

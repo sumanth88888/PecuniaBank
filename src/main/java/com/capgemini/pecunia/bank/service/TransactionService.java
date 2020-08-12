@@ -11,15 +11,15 @@ import com.capgemini.pecunia.bank.exceptions.TransactionException;
 
 public interface TransactionService {
 	
-	public Boolean creditUsingSlip(TxnForm txnform) throws AccountNotFoundException;
+	public boolean creditUsingSlip(TxnForm txnform) throws AccountNotFoundException;
 
-	public Boolean debitUsingSlip(TxnForm txnform) throws AccountNotFoundException,TransactionException;
+	public boolean debitUsingSlip(TxnForm txnform) throws AccountNotFoundException,TransactionException;
 
-	public Boolean creditUsingCheque(Transfer transfer) throws AccountNotFoundException,TransactionException;
+	public boolean creditUsingCheque(Transfer transfer) throws AccountNotFoundException,TransactionException;
 
-	public Boolean debitUsingCheque(TxnForm txnform) throws AccountNotFoundException,TransactionException;
+	public boolean debitUsingCheque(TxnForm txnform) throws AccountNotFoundException,TransactionException;
 
-//	public Boolean addSlip(Slip slip);
+//	public boolean addSlip(Slip slip);
 //
 //	public boolean addCust(Customer cust);
 //
