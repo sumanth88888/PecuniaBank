@@ -1,14 +1,8 @@
 package com.capgemini.pecunia.bank.dao;
 
-
 import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.entity.Cheque;
-import com.capgemini.pecunia.bank.entity.Customer;
 import com.capgemini.pecunia.bank.entity.Slip;
-import com.capgemini.pecunia.bank.entity.Transaction;
-
-
-
 
 public interface TransactionDao {
 
