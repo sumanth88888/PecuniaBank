@@ -90,5 +90,4 @@ public class EditForm {
 		this.customerZipCode = customerZipCode;
 	}
 
-	
 }
