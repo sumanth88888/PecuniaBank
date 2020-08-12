@@ -1,7 +1,6 @@
 package com.capgemini.pecunia.bank.service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,22 +32,26 @@ public class BankServiceImpl implements BankService{
 	private BankDao dao;
 	
 	@Override
-	public String editAccount( EditForm edtFrm) throws InvalidAccountException {
+	public String editAccount(EditForm edtFrm) throws InvalidAccountException {
 		
         Account acc = dao.viewAccount(edtFrm.getAccountId());
 		  
 		  if(acc == null)
 				throw new InvalidAccountException(AccountConstants.INVALID_ACCOUNT);
-		  Customer cust = new Customer();
 		  
+		  Customer cust = new Customer();
+		  cust.setAadharNumber(acc.getCust().getAadharNumber());
 		  cust.setCname(edtFrm.getCustomerName());
+		  cust.setDOB(acc.getCust().getDOB());
+		  cust.setPAN(acc.getCust().getPAN());
 		  cust.setContact(edtFrm.getCustomerContact());
 		  cust.setAddress(edtFrm.getCustomerAddress());
 		  cust.setCity(edtFrm.getCustomerCity());
 		  cust.setState(edtFrm.getCustomerState());
 		  cust.setCountry(edtFrm.getCustomerCountry());
 		  cust.setZipcode(edtFrm.getCustomerZipCode());
-		  dao.editAccount(acc);
+		  cust.setGender(acc.getCust().getGender());
+		  
 		  dao.editCustomer(cust);
 		  return AccountConstants.ACCOUNT_EDITED;
 		  
@@ -75,7 +78,7 @@ public class BankServiceImpl implements BankService{
 		
 		if(acc == null)
 			throw new InvalidAccountException(AccountConstants.INVALID_ACCOUNT);
-		return null;
+		return dao.viewAccount(accId);
 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
