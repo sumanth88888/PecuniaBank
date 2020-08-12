@@ -1,5 +1,6 @@
 package com.capgemini.pecunia.bank.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,7 @@ public class BankServiceImpl implements BankService{
 		  
 		  Customer cust = acc.getCust();
 		  dao.deleteAccount(acc);
-		  return dao.deleteCustomer(cust);    //doubt
+		  return dao.deleteCustomer(cust);   
 	
 	}
 
@@ -100,7 +101,7 @@ public class BankServiceImpl implements BankService{
 			if (customer == null)
 				throw new InvalidCustomerException(AccountConstants.CUSTOMER_NOT_FOUND);
 			
-			LocalDateTime today = LocalDateTime.now();
+			LocalDate today = LocalDate.now();
 			String id = bankForm.getCustomerAadhar().substring(10)+today.toString();
 			account.setAccountId(id);
 			account.setCust(customer);
