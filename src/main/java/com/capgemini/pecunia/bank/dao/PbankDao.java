@@ -11,5 +11,6 @@ public interface PbankDao {
 
 	public List<Transaction> passbookUpdate(String userId);
 	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate);
+	public List<Transaction> getBankTransactions(String UserId, int txns);
 	
 }

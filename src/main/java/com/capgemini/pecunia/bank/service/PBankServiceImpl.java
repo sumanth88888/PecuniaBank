@@ -56,6 +56,12 @@ public class PBankServiceImpl implements PBankService{
 		
 	}
 
+	@Override
+	public List<Transaction> getBankTransactions(String UserId, int txns) {
+		List<Transaction> txnList =  dao.getBankTransactions(UserId, txns);
+		return txnList;
+	}
+
 	
 	
 }

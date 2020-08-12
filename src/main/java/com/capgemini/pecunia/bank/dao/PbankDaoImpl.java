@@ -38,5 +38,14 @@ public class PbankDaoImpl implements PbankDao {
 	}
 
 
+	public List<Transaction> getBankTransactions(String UserId, int txns) {
+		String jpql = "from Transaction txns inner join fetch txns.account acc"
+				+ " where acc.accountId=:userid order by txns.transactionDate desc";
+		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
+		query.setFirstResult(1);
+		query.setMaxResults(txns);
+		query.setParameter("userid", UserId);
+		return query.getResultList();
+	}
 
 }

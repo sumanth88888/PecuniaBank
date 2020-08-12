@@ -21,8 +21,6 @@ import com.capgemini.pecunia.bank.service.PBankService;
 public class PassBookController {
 
 
-	
-
 		@Autowired
 		private PBankService service;
 
@@ -40,5 +38,11 @@ public class PassBookController {
 			return service.accountSummary(form.getUserId(), form.getFromDt(), form.getToDt());
 		}
 
+		@CrossOrigin
+		@GetMapping("/getBankTxnsLimit/{userId}/{txns}")
+		public List<Transaction> getBankTransaction(@PathVariable("userId") String userId,@PathVariable("txns")int txns ) {
+
+			return service.getBankTransactions(userId, txns);
+		}
 		
 	}

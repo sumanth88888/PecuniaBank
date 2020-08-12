@@ -14,5 +14,6 @@ public interface PBankService {
 	
 	public List<Transaction> passbookUpdate(String userId)throws ValidateException,PbankTXNNotFouException;
 	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate)throws PbankTXNNotFouException,ValidateException,DateException;
+	public List<Transaction> getBankTransactions(String UserId, int txns);
 	
 }
