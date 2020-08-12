@@ -24,7 +24,7 @@ public class EditForm {
 	
 	private String customerCountry;
 	
-	private long customerZipCode;
+	private String customerZipCode;
 	
 	public String getAccountId() {
 			return accountId;
@@ -82,11 +82,11 @@ public class EditForm {
 		this.customerCountry = customerCountry;
 	}
 
-	public long getCustomerZipCode() {
+	public String getCustomerZipCode() {
 		return customerZipCode;
 	}
 
-	public void setCustomerZipCode(long customerZipCode) {
+	public void setCustomerZipCode(String customerZipCode) {
 		this.customerZipCode = customerZipCode;
 	}
 

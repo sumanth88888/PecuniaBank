@@ -16,7 +16,7 @@ public class BankForm {
 
 	private String customerName;
 	
-	@DateTimeFormat(pattern = "yyyy-M-d")
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private LocalDate customerDob;
 
 	private String customerAadhar;
@@ -35,15 +35,25 @@ public class BankForm {
 	
 	private String customerCountry;
 	
-	private long customerZipCode;
+	private String customerZipCode;
 	
     private String branchCode;
     
     private String ifscCode;
 	
 	private double acc_bal;
+	
+	private String accountType;
 
 	
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
 	public String getBranchCode() {
 		return branchCode;
 	}
@@ -152,11 +162,11 @@ public class BankForm {
 		this.customerCountry = customerCountry;
 	}
 
-	public long getCustomerZipCode() {
+	public String getCustomerZipCode() {
 		return customerZipCode;
 	}
 
-	public void setCustomerZipCode(long customerZipCode) {
+	public void setCustomerZipCode(String customerZipCode) {
 		this.customerZipCode = customerZipCode;
 	}
 

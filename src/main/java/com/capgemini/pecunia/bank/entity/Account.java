@@ -1,5 +1,6 @@
 package com.capgemini.pecunia.bank.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,31 +22,35 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name="bank_account")
+@Table(name="pecunia_bank_account")
 public class Account {
 	
 	@Id
 	@Column(name = "account_id")
 	private String accountId;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "aadhar_number", referencedColumnName = "aadhar_number")
 	private Customer cust = new Customer();
 	
-	@Column(name = "acc_balance")
+	@Column(name = "balance")
 	private double balance;
 	
-	@Column(name = "ifsc_code", length = 15)
+	@Column(name="account_type")
+	private String accountType;
+	
+	@Column(name = "code", length = 15)
 	private String ifsc;
 	
 	@Column(name = "branch_id", length = 15)
 	private String branch_id;
 	
+	
 
 	public String getAccountId() {
 		return accountId;
 	}
-	
+
 	public void setAccountId(String accountId) {
 		this.accountId = accountId;
 	}
@@ -80,6 +85,14 @@ public class Account {
 	
 	public void setBranch_id(String branch_id) {
 		this.branch_id = branch_id;
+	}
+	
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
 	}
 
 }

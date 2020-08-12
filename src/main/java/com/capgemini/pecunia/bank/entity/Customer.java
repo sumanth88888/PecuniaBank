@@ -21,41 +21,41 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name="bank_customer")
+@Table(name="pecunia_bank_customer")
 public class Customer {
 	
 	@Id
 	@Column(name = "aadhar_number", length =16)
 	private String aadharNumber;
 	
-	@Column(name = "cust_name", length = 25)
+	@Column(name = "Name", length = 25)
 	private String cname;
 	
-	@Column(name = "cust_contact", length = 10)
+	@Column(name = "phone_number", length = 10)
 	private String contact;
 	
-	@Column(name = "cust_pan_card", length = 10)
+	@Column(name = "pan_number", length = 10)
 	private String PAN;
 	
-	@Column(name = "cust_dob")
+	@Column(name = "date_of_birth")
 	private LocalDate DOB;
 	
-	@Column(name="cust_address", length=100)
+	@Column(name="address", length=100)
 	private String address;
 	
-	@Column(name = "cust_state", length = 25)
+	@Column(name = "state", length = 25)
 	private String state;
 
-	@Column(name = "cust_city", length = 25)
+	@Column(name = "city", length = 25)
 	private String city;
 	
-	@Column(name = "cust_country", length = 25)
+	@Column(name = "country", length = 25)
 	private String country;
 	
-	@Column(name = "cust_zipcode")
-	private long zipcode;
+	@Column(name = "zipcode")
+	private String zipcode;
 	
-	@Column(name = "cust_gender", length = 10)
+	@Column(name = "gender", length = 10)
 	private String gender;
 	
 	public String getAadharNumber() {
@@ -130,11 +130,11 @@ public class Customer {
 		this.country = country;
 	}
 	
-	public long getZipcode() {
+	public String getZipcode() {
 		return zipcode;
 	}
 	
-	public void setZipcode(long zipcode) {
+	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 	

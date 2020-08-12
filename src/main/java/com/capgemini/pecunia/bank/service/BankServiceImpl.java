@@ -114,6 +114,7 @@ public class BankServiceImpl implements BankService{
 			account.setBalance(bankForm.getAcc_bal());
 			account.setIfsc(bankForm.getIfscCode());
 			account.setBranch_id(bankForm.getBranchCode());
+			account.setAccountType(bankForm.getAccountType());
 			dao.addAccount(account);
 		    return id;
 	}
