@@ -40,17 +40,17 @@ public class BankServiceImpl implements BankService{
 				throw new InvalidAccountException(AccountConstants.INVALID_ACCOUNT);
 		  
 		  Customer cust = new Customer();
-		  cust.setAadharNumber(acc.getCust().getAadharNumber());
-		  cust.setCname(edtFrm.getCustomerName());
-		  cust.setDOB(acc.getCust().getDOB());
-		  cust.setPAN(acc.getCust().getPAN());
-		  cust.setContact(edtFrm.getCustomerContact());
+		  cust.setAadharNumber(acc.getCustomer().getAadharNumber());
+		  cust.setName(edtFrm.getCustomerName());
+		  cust.setDateOfBirth(acc.getCustomer().getDateOfBirth());
+		  cust.setPanNumber(acc.getCustomer().getPanNumber());
+		  cust.setPhoneNumber(edtFrm.getCustomerContact());
 		  cust.setAddress(edtFrm.getCustomerAddress());
 		  cust.setCity(edtFrm.getCustomerCity());
 		  cust.setState(edtFrm.getCustomerState());
 		  cust.setCountry(edtFrm.getCustomerCountry());
 		  cust.setZipcode(edtFrm.getCustomerZipCode());
-		  cust.setGender(acc.getCust().getGender());
+		  cust.setGender(acc.getCustomer().getGender());
 		  
 		  dao.editCustomer(cust);
 		  return AccountConstants.ACCOUNT_EDITED;
@@ -66,7 +66,7 @@ public class BankServiceImpl implements BankService{
 		  if(acc == null)
 				throw new InvalidAccountException(AccountConstants.INVALID_ACCOUNT);
 		  
-		  Customer cust = acc.getCust();
+		  Customer cust = acc.getCustomer();
 		  dao.deleteAccount(acc);
 		  return dao.deleteCustomer(cust);   
 	
@@ -87,10 +87,10 @@ public class BankServiceImpl implements BankService{
 		
 		Customer cust = new Customer();
 		cust.setAadharNumber(bankForm.getCustomerAadhar());
-		cust.setCname(bankForm.getCustomerName());
-		cust.setDOB(bankForm.getCustomerDob());
-		cust.setContact(bankForm.getCustomerContact());
-		cust.setPAN(bankForm.getCustomerPan());
+		cust.setName(bankForm.getCustomerName());
+		cust.setDateOfBirth(bankForm.getCustomerDob());
+		cust.setPhoneNumber(bankForm.getCustomerContact());
+		cust.setPanNumber(bankForm.getCustomerPan());
 		cust.setGender(bankForm.getCustomerGender());
 		cust.setAddress(bankForm.getCustomerAddress());
 		cust.setCity(bankForm.getCustomerCity());
@@ -110,10 +110,10 @@ public class BankServiceImpl implements BankService{
 						+bankForm.getCustomerAadhar().substring(10);
 			
 			account.setAccountId(id);
-			account.setCust(customer);
+			account.setCustomer(customer);
 			account.setBalance(bankForm.getAcc_bal());
 			account.setIfsc(bankForm.getIfscCode());
-			account.setBranch_id(bankForm.getBranchCode());
+			account.setBranchId(bankForm.getBranchCode());
 			account.setAccountType(bankForm.getAccountType());
 			dao.addAccount(account);
 		    return id;
