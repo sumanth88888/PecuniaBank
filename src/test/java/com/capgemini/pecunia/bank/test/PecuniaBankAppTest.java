@@ -14,7 +14,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import com.capgemini.pecunia.bank.exceptions.DateException;
-import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
 import com.capgemini.pecunia.bank.exceptions.ValidateException;
 import com.capgemini.pecunia.bank.service.PBankService;
 import com.capgemini.pecunia.bank.service.PBankServiceImpl;
@@ -72,6 +71,9 @@ public class PecuniaBankAppTest {
 		assertThrows(ValidateException.class,
 				() -> ser.getBankTransactions("12345665432", 2));
 	}
+
+
+	
 	
 	
 

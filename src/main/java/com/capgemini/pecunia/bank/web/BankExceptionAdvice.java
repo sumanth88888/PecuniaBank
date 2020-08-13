@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.capgemini.pecunia.bank.dto.ErrorMessage;
-import com.capgemini.pecunia.bank.exceptions.AccountIdException;
 import com.capgemini.pecunia.bank.exceptions.DateException;
 import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
 import com.capgemini.pecunia.bank.exceptions.ValidateException;

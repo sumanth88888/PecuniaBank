@@ -6,17 +6,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class ReportForm {
 
-	private String UserId;
+	private String userId;
 	@DateTimeFormat(pattern="yyyy-M-d")
 	private LocalDate fromDt;
 	@DateTimeFormat(pattern="yyyy-M-d")
-	private LocalDate toDt;
-	
+	private LocalDate toDate;
 	public String getUserId() {
-		return UserId;
+		return userId;
 	}
 	public void setUserId(String userId) {
-		this.UserId = userId;
+		this.userId = userId;
 	}
 	public LocalDate getFromDt() {
 		return fromDt;
@@ -24,12 +23,14 @@ public class ReportForm {
 	public void setFromDt(LocalDate fromDt) {
 		this.fromDt = fromDt;
 	}
-	public LocalDate getToDt() {
-		return toDt;
+	public LocalDate getToDate() {
+		return toDate;
 	}
-	public void setToDt(LocalDate toDt) {
-		this.toDt = toDt;
+	public void setToDate(LocalDate toDate) {
+		this.toDate = toDate;
 	}
+	
+	
 	
 	
 	

@@ -45,4 +45,15 @@ public interface PBankService {
 	 **********************************************************************************/
 	public List<Transaction> getBankTransactions(String userId, int txns) throws ValidateException, PbankTXNNotFouException;
 	
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : lastPassbookUpdate
+	 * Description   : getting transactions of given user's UserId from Last Updated Date
+	 * Return Type   : List(List of Transactions)
+	 * Parameter 1   : String UserId,LocalDate fromDt
+	 * @throws       : ValidateException, PbankTXNNotFouException
+	 * 
+	 **********************************************************************************/
+	public List<Transaction> lastPassbookUpdate(String userId,LocalDate fromDt)throws ValidateException, PbankTXNNotFouException;
 }

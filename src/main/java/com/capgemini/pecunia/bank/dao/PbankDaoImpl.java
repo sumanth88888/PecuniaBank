@@ -48,8 +48,7 @@ public class PbankDaoImpl implements PbankDao {
 	@Override
 	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate) {
 		String jpql = "from Transaction txns inner join fetch txns.account acc "
-				+ "where acc.accountId=:userid and txns.transactionDate between :fromdt and :todt order by txns.transactionId desc";
-		
+				+ "where acc.accountId=:userid and txns.transactionDate between :fromdt and :todt";
 		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
 		query.setParameter("userid", userId);
 		query.setParameter("fromdt", fromDt);
@@ -76,5 +75,6 @@ public class PbankDaoImpl implements PbankDao {
 		query.setParameter("userid", userId);
 		return query.getResultList();
 	}
+
 
 }

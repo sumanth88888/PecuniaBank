@@ -19,13 +19,14 @@ import com.capgemini.pecunia.bank.exceptions.ValidateException;
 @Service
 public class PBankServiceImpl implements PBankService{
 
-	public PBankServiceImpl() {
-		
-	}
+	
 	@Autowired
 	private PbankDao dao;
 
 	
+    public PBankServiceImpl() {
+		
+	}
 	/**********************************************************************************
 	 * 
 	 * @Author Name  : venkata sai kumar
@@ -67,7 +68,7 @@ public class PBankServiceImpl implements PBankService{
 			throw new ValidateException("Account ID must be 12 digit");
 		if (toDate.compareTo(fromDt) < 0)
 			throw new DateException("ToDate must be graeter than FromDate");
-		if(toDate.compareTo(LocalDate.now())>0)
+		if(toDate.isBefore(LocalDate.now()))
 			throw new DateException("from date must be less than current date");
 
 		List<Transaction> txnList =  dao.accountSummary(userId, fromDt, toDate);
@@ -96,6 +97,26 @@ public class PBankServiceImpl implements PBankService{
 		
 		List<Transaction> txnList =  dao.getBankTransactions(userId, txns);
 		
+		if(txnList.isEmpty())
+			throw new PbankTXNNotFouException("No Transaction available.");
+		return txnList;
+	}
+	
+	/**********************************************************************************
+	 * 
+	 * @Author Name  : venkata sai kumar
+	 * Method Name   : lastPassbookUpdate
+	 * Description   : getting transactions of given user's UserId from Last Updated Date
+	 * Return Type   : List(List of Transactions)
+	 * Parameter 1   : String UserId,LocalDate fromDt
+	 * @throws       : ValidateException, PbankTXNNotFouException
+	 * 
+	 **********************************************************************************/
+	@Override
+	public List<Transaction> lastPassbookUpdate(String userId, LocalDate fromDt)throws ValidateException, PbankTXNNotFouException {
+		if (!userId.matches("[0-9]{12}"))
+			throw new ValidateException("Account ID must be 12 digit");
+		List<Transaction> txnList =  dao.accountSummary(userId, fromDt, LocalDate.now());
 		if(txnList.isEmpty())
 			throw new PbankTXNNotFouException("No Transaction available.");
 		return txnList;

@@ -24,7 +24,7 @@ import com.capgemini.pecunia.bank.service.PBankService;
  * 
  **********************************************************************************/
 @RestController
-public class PassBookController {
+public class PBankController {
 
 
 		@Autowired
@@ -62,7 +62,7 @@ public class PassBookController {
 		@PostMapping("/getBankTxnsForDateRange")
 		public List<Transaction> accountSummary(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
 
-			return service.accountSummary(form.getUserId(), form.getFromDt(), form.getToDt());
+			return service.accountSummary(form.getUserId(), form.getFromDt(), form.getToDate());
 		}
 
 		/**********************************************************************************
@@ -80,6 +80,24 @@ public class PassBookController {
 		public List<Transaction> getBankTransaction(@PathVariable("userId") String userId,@PathVariable("txns")int txns ) throws ValidateException, PbankTXNNotFouException {
 
 			return service.getBankTransactions(userId, txns);
+		}
+		
+		
+		/**********************************************************************************
+		 * 
+		 * @Author Name  : venkata sai kumar
+		 * Method Name   : lastPassbookUpdate
+		 * Description   : getting transactions of given user's UserId from Last Updated Date
+		 * Return Type   : List(List of Transactions)
+		 * Parameter 1   : String UserId,LocalDate fromDt
+		 * @throws       : ValidateException, PbankTXNNotFouException
+		 * 
+		 **********************************************************************************/
+		@CrossOrigin
+		@PostMapping("/getBankTxnsFormLastUpdate")
+		public List<Transaction> lastPassbookUpdate(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
+
+			return service.lastPassbookUpdate(form.getUserId(), form.getFromDt());
 		}
 		
 	}
