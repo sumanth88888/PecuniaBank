@@ -7,7 +7,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class ReportForm {
 
 	private String UserId;
-	private String receipentId;
 	@DateTimeFormat(pattern="yyyy-M-d")
 	private LocalDate fromDt;
 	@DateTimeFormat(pattern="yyyy-M-d")
@@ -18,12 +17,6 @@ public class ReportForm {
 	}
 	public void setUserId(String userId) {
 		this.UserId = userId;
-	}
-	public String getReceipentId() {
-		return receipentId;
-	}
-	public void setReceipentId(String receipentId) {
-		this.receipentId = receipentId;
 	}
 	public LocalDate getFromDt() {
 		return fromDt;

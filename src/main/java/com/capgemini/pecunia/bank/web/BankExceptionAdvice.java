@@ -9,10 +9,11 @@ import com.capgemini.pecunia.bank.dto.ErrorMessage;
 import com.capgemini.pecunia.bank.exceptions.AccountIdException;
 import com.capgemini.pecunia.bank.exceptions.DateException;
 import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
+import com.capgemini.pecunia.bank.exceptions.ValidateException;
 
 @RestControllerAdvice//globel exception handler
 public class BankExceptionAdvice {
-	@ExceptionHandler({PbankTXNNotFouException.class,AccountIdException.class})
+	@ExceptionHandler({PbankTXNNotFouException.class,ValidateException.class})
 	@ResponseStatus(code = HttpStatus.NOT_FOUND)//http status codes
 	public ErrorMessage handleNotFoundException(Exception ex) {
 		return new ErrorMessage(ex.getMessage());
