@@ -146,11 +146,12 @@ public class Account {
 		this.ifsc = ifsc;
 	}
 
-	/*
-	 * @Override public String toString() { return "Account [accountId=" + accountId
-	 * + ", customer=" + customer + ", balance=" + balance + ", accountType=" +
-	 * accountType + ", branchId=" + branchId + ", ifsc=" + ifsc + "]"; }
-	 */
+	@Override
+	public String toString() {
+		return "Account [accountId=" + accountId + ", customer=" + customer + ", balance=" + balance
+				+ ", accountType=" + accountType + ", branchId=" + branchId + ", ifsc=" + ifsc + "]";
+	}
+
 	
 	
 }
