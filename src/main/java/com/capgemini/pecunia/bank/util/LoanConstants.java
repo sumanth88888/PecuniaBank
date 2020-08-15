@@ -1,6 +1,6 @@
 package com.capgemini.pecunia.bank.util;
 
-public class AccountConstants {
+public class LoanConstants {
 
 	public static final String INVALID_CUSTOMER = "Account ID does not exist";
 	public static final String EMPTY = "";
@@ -18,7 +18,7 @@ public class AccountConstants {
 	public static final int CREDIT_SCORE  = 670;
 	
 	
-	private AccountConstants() {
+	private LoanConstants() {
 		
 	}
 }

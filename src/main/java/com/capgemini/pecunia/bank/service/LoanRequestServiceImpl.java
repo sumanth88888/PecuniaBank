@@ -9,7 +9,7 @@ import com.capgemini.pecunia.bank.dto.LoanRequestForm;
 import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.entity.LoanRequest;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
-import com.capgemini.pecunia.bank.util.AccountConstants;
+import com.capgemini.pecunia.bank.util.LoanConstants;
 
 @Transactional
 @Service("LoanRequestService")
@@ -32,9 +32,9 @@ public class LoanRequestServiceImpl implements LoanRequestService{
 	public String createLoanRequest(LoanRequestForm loanRequestForm) throws AccountNotFoundException {
 		Account account = loanRequestDao.getAccount(loanRequestForm.getAccountId());
 		if(account==null)
-			throw new AccountNotFoundException(AccountConstants.INVALID_CUSTOMER);
-		long count = loanRequestDao.countLoansForCustomer(loanRequestForm.getAccountId()) + AccountConstants.ONE;
-		String loanRequestId = loanRequestForm.getAccountId() + AccountConstants.EMPTY +count;
+			throw new AccountNotFoundException(LoanConstants.INVALID_CUSTOMER);
+		long count = loanRequestDao.countLoansForCustomer(loanRequestForm.getAccountId()) + LoanConstants.ONE;
+		String loanRequestId = loanRequestForm.getAccountId() + LoanConstants.EMPTY +count;
 		LoanRequest loanRequest = new LoanRequest();
 		loanRequest.setLoanRequestId(loanRequestId);
 		loanRequest.setLoanAmount(loanRequestForm.getLoanAmt());
@@ -43,7 +43,7 @@ public class LoanRequestServiceImpl implements LoanRequestService{
 		loanRequest.setLoanType(loanRequestForm.getLoanType());
 		loanRequest.setRateOfInterest(loanRequest.getRateOfInterest());
 		loanRequest.setAccount(account);
-		loanRequest.setLoanRequestStatus(AccountConstants.PENDING);
+		loanRequest.setLoanRequestStatus(LoanConstants.PENDING);
 		loanRequestDao.addLoanDetails(loanRequest);
 		return loanRequestId;
 	}

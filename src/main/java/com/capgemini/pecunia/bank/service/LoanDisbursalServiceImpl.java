@@ -11,7 +11,7 @@ import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.entity.LoanRequest;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.LoanException;
-import com.capgemini.pecunia.bank.util.AccountConstants;
+import com.capgemini.pecunia.bank.util.LoanConstants;
 
 @Service("LoanDisbursalService")
 public class LoanDisbursalServiceImpl implements LoanDisbursalService{
@@ -36,24 +36,24 @@ public class LoanDisbursalServiceImpl implements LoanDisbursalService{
 		LoanRequest loanRequest = loanDisbursalDao.getLoanRequest(loanRequestId);
 		Account account = loanRequest.getAccount();
 		if(account == null) {
-			throw new AccountNotFoundException( AccountConstants.INVALID_CUSTOMER );
+			throw new AccountNotFoundException( LoanConstants.INVALID_CUSTOMER );
 		}
 		
-		if(option.contentEquals(AccountConstants.ACCEPT)) {
-			if(loanRequest.getCreditScore() > AccountConstants.CREDIT_SCORE) {
+		if(option.contentEquals(LoanConstants.ACCEPT)) {
+			if(loanRequest.getCreditScore() > LoanConstants.CREDIT_SCORE) {
 				
-				loanRequest.setLoanRequestStatus(AccountConstants.ACCEPTED);
+				loanRequest.setLoanRequestStatus(LoanConstants.ACCEPTED);
 				account.setBalance(account.getBalance() + loanRequest.getLoanAmount());
 				loanDisbursalDao.editAccount(account);
 				loanDisbursalDao.editLoanRequest(loanRequest);
 				return true;
 			}else {
-				loanRequest.setLoanRequestStatus(AccountConstants.REJECTED);
+				loanRequest.setLoanRequestStatus(LoanConstants.REJECTED);
 				loanDisbursalDao.editLoanRequest(loanRequest);
 				return false;
 			}
 		}else {
-			loanRequest.setLoanRequestStatus(AccountConstants.REJECTED);
+			loanRequest.setLoanRequestStatus(LoanConstants.REJECTED);
 			return false;
 		}
 		
@@ -73,7 +73,7 @@ public class LoanDisbursalServiceImpl implements LoanDisbursalService{
 	public List<LoanRequest> retrievedisbursedLoanRequest(String status) throws LoanException{
 		List<LoanRequest> loanRequestList = loanDisbursalDao.retrieveDisbursedLoanRequest(status);
 		if(loanRequestList.isEmpty()) {
-			throw new LoanException(AccountConstants.NO_LOAN);
+			throw new LoanException(LoanConstants.NO_LOAN);
 		}else {
 			return loanRequestList;
 		}

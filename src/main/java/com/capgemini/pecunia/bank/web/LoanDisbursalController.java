@@ -13,7 +13,7 @@ import com.capgemini.pecunia.bank.entity.LoanRequest;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.LoanException;
 import com.capgemini.pecunia.bank.service.LoanDisbursalService;
-import com.capgemini.pecunia.bank.util.AccountConstants;
+import com.capgemini.pecunia.bank.util.LoanConstants;
 
 @RestController
 public class LoanDisbursalController {
@@ -29,7 +29,7 @@ public class LoanDisbursalController {
 	@PostMapping("/disburseloanrequest/{loanRequestId}/{option}")
 	public LoanMessage disburseLoanRequest(@PathVariable("loanRequestId") String loanRequestId, @PathVariable("option") String option) throws AccountNotFoundException {
 		loanDisbursalService.disburseLoanRequest(loanRequestId,option);
-		LoanMessage loanMessage = new LoanMessage(AccountConstants.LOAN_PROCESSED);
+		LoanMessage loanMessage = new LoanMessage(LoanConstants.LOAN_PROCESSED);
 		return loanMessage;
 	}
 }

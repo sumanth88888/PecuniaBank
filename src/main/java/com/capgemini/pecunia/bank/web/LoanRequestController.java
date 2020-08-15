@@ -9,7 +9,7 @@ import com.capgemini.pecunia.bank.dto.LoanMessage;
 import com.capgemini.pecunia.bank.dto.LoanRequestForm;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.service.LoanRequestService;
-import com.capgemini.pecunia.bank.util.AccountConstants;
+import com.capgemini.pecunia.bank.util.LoanConstants;
 
 @RestController
 public class LoanRequestController {
@@ -22,6 +22,6 @@ public class LoanRequestController {
 		
 		String loanRequestId = loanRequestService.createLoanRequest(loanRequestForm);
 		return new LoanMessage(
-				AccountConstants.LOAN_REQ_CREATED + AccountConstants.GENERATED_LOAN_REQ + loanRequestId);
+				LoanConstants.LOAN_REQ_CREATED + LoanConstants.GENERATED_LOAN_REQ + loanRequestId);
 	}
 }
