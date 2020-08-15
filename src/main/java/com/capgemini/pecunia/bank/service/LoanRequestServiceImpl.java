@@ -33,8 +33,8 @@ public class LoanRequestServiceImpl implements LoanRequestService{
 		Account account = loanRequestDao.getAccount(loanRequestForm.getAccountId());
 		if(account==null)
 			throw new AccountNotFoundException(AccountConstants.INVALID_CUSTOMER);
-		long count = loanRequestDao.countLoansForCustomer(loanRequestForm.getAccountId())+AccountConstants.ONE;
-		String loanRequestId = loanRequestForm.getAccountId()+AccountConstants.EMPTY+count;
+		long count = loanRequestDao.countLoansForCustomer(loanRequestForm.getAccountId()) + AccountConstants.ONE;
+		String loanRequestId = loanRequestForm.getAccountId() + AccountConstants.EMPTY +count;
 		LoanRequest loanRequest = new LoanRequest();
 		loanRequest.setLoanRequestId(loanRequestId);
 		loanRequest.setLoanAmount(loanRequestForm.getLoanAmt());

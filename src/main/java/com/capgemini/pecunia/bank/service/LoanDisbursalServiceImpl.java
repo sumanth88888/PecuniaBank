@@ -32,17 +32,18 @@ public class LoanDisbursalServiceImpl implements LoanDisbursalService{
 	
 	@Transactional
 	@Override
-	public boolean disburseLoanRequest(String loanRequestId, String status) throws AccountNotFoundException {
+	public boolean disburseLoanRequest(String loanRequestId, String option) throws AccountNotFoundException {
 		LoanRequest loanRequest = loanDisbursalDao.getLoanRequest(loanRequestId);
 		Account account = loanRequest.getAccount();
 		if(account == null) {
-			throw new AccountNotFoundException(AccountConstants.INVALID_CUSTOMER);
+			throw new AccountNotFoundException( AccountConstants.INVALID_CUSTOMER );
 		}
 		
-		if(status==AccountConstants.ACCEPT) {
-			if(loanRequest.getCreditScore()>AccountConstants.CREDIT_SCORE) {
+		if(option.contentEquals(AccountConstants.ACCEPT)) {
+			if(loanRequest.getCreditScore() > AccountConstants.CREDIT_SCORE) {
+				
 				loanRequest.setLoanRequestStatus(AccountConstants.ACCEPTED);
-				account.setBalance(account.getBalance()+loanRequest.getLoanAmount());
+				account.setBalance(account.getBalance() + loanRequest.getLoanAmount());
 				loanDisbursalDao.editAccount(account);
 				loanDisbursalDao.editLoanRequest(loanRequest);
 				return true;

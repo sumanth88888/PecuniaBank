@@ -26,9 +26,9 @@ public class LoanDisbursalController {
 		return loanDisbursalService.retrievedisbursedLoanRequest(status);
 	}
 	
-	@PostMapping("/disburseloanrequest/{loanRequestId}/{status}")
-	public LoanMessage disburseLoanRequest(@PathVariable("loanRequestId") String loanRequestId, @PathVariable("status") String status) throws AccountNotFoundException {
-		loanDisbursalService.disburseLoanRequest(loanRequestId,status);
+	@PostMapping("/disburseloanrequest/{loanRequestId}/{option}")
+	public LoanMessage disburseLoanRequest(@PathVariable("loanRequestId") String loanRequestId, @PathVariable("option") String option) throws AccountNotFoundException {
+		loanDisbursalService.disburseLoanRequest(loanRequestId,option);
 		LoanMessage loanMessage = new LoanMessage(AccountConstants.LOAN_PROCESSED);
 		return loanMessage;
 	}

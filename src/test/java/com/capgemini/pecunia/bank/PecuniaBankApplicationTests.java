@@ -38,7 +38,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName(value = "TestCases")
 @RunWith(MockitoJUnitRunner.class)
-//@SpringBootTest(classes = PecuniaBankApplication.class)
 public class PecuniaBankApplicationTests {
 
 	@Mock
