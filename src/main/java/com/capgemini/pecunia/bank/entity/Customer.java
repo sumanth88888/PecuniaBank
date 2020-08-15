@@ -1,12 +1,12 @@
 package com.capgemini.pecunia.bank.entity;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -68,7 +68,6 @@ public class Customer {
 	 * @param zipcode
 	 * @param gender
 	 */
-
 	public Customer(String aadharNumber, String name, String phoneNumber, String panNumber, LocalDate dateOfBirth,
 			String address, String state, String city, String country, String zipcode, String gender) {
 		super();
