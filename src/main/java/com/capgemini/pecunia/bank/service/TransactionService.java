@@ -1,0 +1,32 @@
+package com.capgemini.pecunia.bank.service;
+
+import com.capgemini.pecunia.bank.dto.Transfer;
+import com.capgemini.pecunia.bank.dto.TxnForm;
+import com.capgemini.pecunia.bank.entity.Account;
+import com.capgemini.pecunia.bank.entity.Cheque;
+import com.capgemini.pecunia.bank.entity.Customer;
+import com.capgemini.pecunia.bank.entity.Slip;
+import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
+import com.capgemini.pecunia.bank.exceptions.TransactionException;
+
+public interface TransactionService {
+	
+	public boolean creditUsingSlip(TxnForm txnform) throws AccountNotFoundException;
+
+	public boolean debitUsingSlip(TxnForm txnform) throws AccountNotFoundException,TransactionException;
+
+	public boolean creditUsingCheque(Transfer transfer) throws AccountNotFoundException,TransactionException;
+
+	public boolean debitUsingCheque(TxnForm txnform) throws AccountNotFoundException,TransactionException;
+
+//	public boolean addSlip(Slip slip);
+//
+//	public boolean addCust(Customer cust);
+//
+//	public boolean addCheque(Cheque cheque);
+//	
+//	public boolean addAccount(Account account);
+
+	
+	
+}
