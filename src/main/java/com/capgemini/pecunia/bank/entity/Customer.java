@@ -11,46 +11,45 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name="pecunia_bank_customer")
+@Table(name = "pecunia_bank_customer")
 @DynamicInsert
 @DynamicUpdate
 public class Customer {
 
 	@Id
-	@Column(name="aadhar_number")
+	@Column(name = "aadhar_number")
 	private String aadharNumber;
-	
-	@Column(name="Name")
+
+	@Column(name = "Name")
 	private String name;
-	
-	@Column(name="phone_number")
+
+	@Column(name = "phone_number")
 	private String phoneNumber;
-	
-	@Column(name="pan_number")
+
+	@Column(name = "pan_number")
 	private String panNumber;
-	
-	@Column(name="date_of_birth")
+
+	@Column(name = "date_of_birth")
 	private LocalDate dateOfBirth;
-	
-	@Column(name="address")
+
+	@Column(name = "address")
 	private String address;
-	
-	@Column(name="state")
+
+	@Column(name = "state")
 	private String state;
-	
-	@Column(name="city")
+
+	@Column(name = "city")
 	private String city;
-	
-	@Column(name="country")
+
+	@Column(name = "country")
 	private String country;
-	
-	@Column(name="zipcode")
+
+	@Column(name = "zipcode")
 	private String zipcode;
-	
-	@Column(name="gender")
+
+	@Column(name = "gender")
 	private String gender;
 
-	
 	public Customer() {
 		super();
 	}
@@ -246,17 +245,5 @@ public class Customer {
 				+ state + ", city=" + city + ", country=" + country + ", zipcode=" + zipcode + ", gender=" + gender
 				+ "]";
 	}
-	
-	
-	
 
-
-	
-	
-	
-	
-	
-	
-	
-	
 }

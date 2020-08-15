@@ -12,33 +12,31 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name="pecunia_bank_account")
+@Table(name = "pecunia_bank_account")
 @DynamicInsert
 @DynamicUpdate
 public class Account {
 
 	@Id
-	@Column(name="account_id")
+	@Column(name = "account_id")
 	private String accountId;
-	
-	@OneToOne(cascade = {CascadeType.ALL})
+
+	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "aadhar_number", referencedColumnName = "aadhar_number")
 	private Customer customer;
-	
-	@Column(name="balance")
+
+	@Column(name = "balance")
 	private double balance;
-	
-	@Column(name="account_type")
+
+	@Column(name = "account_type")
 	private String accountType;
-	
-	
-	@Column(name="branch_id")
+
+	@Column(name = "branch_id")
 	private String branchId;
-	
-	@Column(name="Ifsc")
+
+	@Column(name = "Ifsc")
 	private String ifsc;
-	
-	
+
 	public Account() {
 		super();
 	}
@@ -148,10 +146,8 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [accountId=" + accountId + ", customer=" + customer + ", balance=" + balance
-				+ ", accountType=" + accountType + ", branchId=" + branchId + ", ifsc=" + ifsc + "]";
+		return "Account [accountId=" + accountId + ", customer=" + customer + ", balance=" + balance + ", accountType="
+				+ accountType + ", branchId=" + branchId + ", ifsc=" + ifsc + "]";
 	}
 
-	
-	
 }
