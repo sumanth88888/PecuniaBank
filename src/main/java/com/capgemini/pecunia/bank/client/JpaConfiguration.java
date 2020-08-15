@@ -48,6 +48,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //@PropertySource(value= {"classpath:application.properties"})
 public class JpaConfiguration {
 
+
 	/*
 	@Autowired
 	private Environment environment;
