@@ -13,6 +13,7 @@ import com.capgemini.pecunia.bank.entity.Transaction;
 import com.capgemini.pecunia.bank.exceptions.DateException;
 import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
 import com.capgemini.pecunia.bank.exceptions.ValidateException;
+import com.capgemini.pecunia.bank.util.BankConstants;
 
 
 @Transactional
@@ -40,8 +41,8 @@ public class PBankServiceImpl implements PBankService{
 	@Override
 	public List<Transaction> passbookUpdate(String userId)
 			throws  ValidateException,PbankTXNNotFouException {
-		if (!userId.matches("[0-9]{12}"))
-			throw new ValidateException("Account ID must be 12 digit");
+		if (!userId.matches(BankConstants.SYRING_VALIDATION))
+			throw new ValidateException(BankConstants.INVALID_ACCOUNT);
 		
 		List<Transaction> txnList =  dao.passbookUpdate(userId);
 		if(txnList.isEmpty())
@@ -64,16 +65,16 @@ public class PBankServiceImpl implements PBankService{
 	@Override
 	public List<Transaction> accountSummary(String userId, LocalDate fromDt, LocalDate toDate)
 			throws  ValidateException,PbankTXNNotFouException,DateException{
-		if (!userId.matches("[0-9]{12}"))
-			throw new ValidateException("Account ID must be 12 digit");
+		if (!userId.matches(BankConstants.SYRING_VALIDATION))
+			throw new ValidateException(BankConstants.INVALID_ACCOUNT);
 		if (toDate.compareTo(fromDt) < 0)
 			throw new DateException("ToDate must be graeter than FromDate");
-		if(toDate.isBefore(LocalDate.now()))
-			throw new DateException("from date must be less than current date");
+		if(toDate.isAfter(LocalDate.now()))
+			throw new DateException("ToDate must be less than current date");
 
 		List<Transaction> txnList =  dao.accountSummary(userId, fromDt, toDate);
 		if(txnList.isEmpty())
-			throw new PbankTXNNotFouException("No Transaction available.");
+			throw new PbankTXNNotFouException(BankConstants.NO_TXN_AVAILABLE);
 		txnList.sort((t1, t2)->t2.getTransactionDate().compareTo(t1.getTransactionDate()));
 		return txnList;
 		
@@ -92,13 +93,13 @@ public class PBankServiceImpl implements PBankService{
 	 **********************************************************************************/
 	@Override
 	public List<Transaction> getBankTransactions(String userId, int txns) throws ValidateException, PbankTXNNotFouException {
-		if (!userId.matches("[0-9]{12}"))
-			throw new ValidateException("Account ID must be 12 digit");
+		if (!userId.matches(BankConstants.SYRING_VALIDATION))
+			throw new ValidateException(BankConstants.INVALID_ACCOUNT);
 		
 		List<Transaction> txnList =  dao.getBankTransactions(userId, txns);
 		
 		if(txnList.isEmpty())
-			throw new PbankTXNNotFouException("No Transaction available.");
+			throw new PbankTXNNotFouException(BankConstants.NO_TXN_AVAILABLE);
 		return txnList;
 	}
 	
@@ -114,11 +115,11 @@ public class PBankServiceImpl implements PBankService{
 	 **********************************************************************************/
 	@Override
 	public List<Transaction> lastPassbookUpdate(String userId, LocalDate fromDt)throws ValidateException, PbankTXNNotFouException {
-		if (!userId.matches("[0-9]{12}"))
-			throw new ValidateException("Account ID must be 12 digit");
+		if (!userId.matches(BankConstants.SYRING_VALIDATION))
+			throw new ValidateException(BankConstants.INVALID_ACCOUNT);
 		List<Transaction> txnList =  dao.accountSummary(userId, fromDt, LocalDate.now());
 		if(txnList.isEmpty())
-			throw new PbankTXNNotFouException("No Transaction available.");
+			throw new PbankTXNNotFouException(BankConstants.NO_TXN_AVAILABLE);
 		return txnList;
 	}
 

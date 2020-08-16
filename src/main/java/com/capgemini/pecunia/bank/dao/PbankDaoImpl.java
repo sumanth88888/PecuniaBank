@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.pecunia.bank.entity.Transaction;
+import com.capgemini.pecunia.bank.util.BankConstants;
 
 @Repository
 public class PbankDaoImpl implements PbankDao {
@@ -31,7 +32,7 @@ public class PbankDaoImpl implements PbankDao {
 		String jpql = "from Transaction txns inner join fetch txns.account acc " 
 	                  + " where acc.accountId=:userid";
 		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
-		query.setParameter("userid", userId);
+		query.setParameter(BankConstants.USERID, userId);
 		return query.getResultList();
 	}
 
@@ -50,7 +51,7 @@ public class PbankDaoImpl implements PbankDao {
 		String jpql = "from Transaction txns inner join fetch txns.account acc "
 				+ "where acc.accountId=:userid and txns.transactionDate between :fromdt and :todt";
 		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
-		query.setParameter("userid", userId);
+		query.setParameter(BankConstants.USERID, userId);
 		query.setParameter("fromdt", fromDt);
 		query.setParameter("todt", toDate);
 		return query.getResultList();
@@ -72,7 +73,7 @@ public class PbankDaoImpl implements PbankDao {
 		TypedQuery<Transaction> query = entityManager.createQuery(jpql, Transaction.class);
 		query.setFirstResult(1);
 		query.setMaxResults(txns);
-		query.setParameter("userid", userId);
+		query.setParameter(BankConstants.USERID, userId);
 		return query.getResultList();
 	}
 

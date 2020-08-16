@@ -95,7 +95,7 @@ public class PBankController {
 		 **********************************************************************************/
 		@CrossOrigin
 		@PostMapping("/getBankTxnsFormLastUpdate")
-		public List<Transaction> lastPassbookUpdate(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
+		public List<Transaction> lastPassbookUpdate(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException {
 
 			return service.lastPassbookUpdate(form.getUserId(), form.getFromDt());
 		}
