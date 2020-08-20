@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.pecunia.bank.dto.BankForm;
 import com.capgemini.pecunia.bank.dto.BankMessage;
+import com.capgemini.pecunia.bank.dto.DeleteForm;
 import com.capgemini.pecunia.bank.entity.Account;
 import com.capgemini.pecunia.bank.exceptions.InvalidAccountException;
 import com.capgemini.pecunia.bank.exceptions.InvalidCustomerException;
@@ -74,10 +75,10 @@ public class AccountController {
 	
 	
 	@CrossOrigin
-	@PutMapping("/deleteaccount/{accId}")
-	public BankMessage deleteAccount(@PathVariable("accId") String accId, HttpServletRequest request) throws InvalidAccountException {
+	@PutMapping("/deleteaccount")
+	public BankMessage deleteAccount(@RequestBody DeleteForm dFrm, HttpServletRequest request) throws InvalidAccountException {
 		
-		service.deleteAccount(accId);
+		service.deleteAccount(dFrm.getAccId());
 		return new BankMessage(AccountConstants.ACCOUNT_REMOVED);
 		
 		}

@@ -17,7 +17,7 @@ import com.capgemini.pecunia.bank.util.walletConstants;
 public class TransactionController {
 
 	@Autowired
-	private TransactionService service;
+	private TransactionService transactionService;
 
 	
 	
@@ -34,7 +34,7 @@ public class TransactionController {
 	@PostMapping("/debitBySlip")
 	public BankMessage debitUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
 
-		service.debitUsingSlip(txnform);
+		transactionService.debitUsingSlip(txnform);
 		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
 
 		return bankmessage;
@@ -55,7 +55,7 @@ public class TransactionController {
 	@PostMapping("/debitByCheque")
 	public BankMessage debitByCheque(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
 
-		service.debitUsingCheque(txnform);
+		transactionService.debitUsingCheque(txnform);
 		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
 
 		return bankmessage;
@@ -73,7 +73,7 @@ public class TransactionController {
 	@PostMapping("/creditBySlip")
 	public BankMessage creditUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException {
 
-		service.creditUsingSlip(txnform);
+		transactionService.creditUsingSlip(txnform);
 		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
 		return bankmessage;
 	}
@@ -91,7 +91,7 @@ public class TransactionController {
 	@PostMapping("/creditByCheque")
 	public BankMessage creditByCheque(@RequestBody Transfer transfer) throws AccountNotFoundException, TransactionException {
 
-		service.creditUsingCheque(transfer);
+		transactionService.creditUsingCheque(transfer);
 		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
 
 		return bankmessage;
