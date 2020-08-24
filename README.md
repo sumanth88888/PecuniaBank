@@ -1,0 +1,1 @@
+This project contains backend code for PecuniaBank . We have used SpringBoot for Backend and Angular for frontend. In PecuniaBank we can create a account for the bank. You can do debit and credit  by using either slip or cheque.If the customer have accout in the bank then customer can apply for loan request. The customer can see his transactions.
