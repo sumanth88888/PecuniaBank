@@ -34,7 +34,6 @@ public class LoanController {
 	@PostMapping("/disburseloanrequest")
 	public BankMessage disburseLoanRequest(@RequestBody LoanDisbursalForm loanDisbursalForm) throws AccountNotFoundException {
 		loanService.disburseLoanRequest(loanDisbursalForm);
-		System.out.println("LoanForm"+loanDisbursalForm.getLoanRequestId());
 		BankMessage loanMessage = new BankMessage(LoanConstants.LOAN_PROCESSED);
 		return loanMessage;
 	}
