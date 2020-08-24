@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.pecunia.bank.dto.ReportForm;
 import com.capgemini.pecunia.bank.entity.Transaction;
+import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.DateException;
 import com.capgemini.pecunia.bank.exceptions.PbankTXNNotFouException;
+import com.capgemini.pecunia.bank.exceptions.TxnsNumberException;
 import com.capgemini.pecunia.bank.exceptions.ValidateException;
 import com.capgemini.pecunia.bank.service.PassBookService;
 
@@ -32,8 +34,9 @@ public class PassBookController {
 
 	/**********************************************************************************
 	 * 
+	 * @throws AccountNotFoundException 
 	 * @Author Name  : venkata sai kumar
-	 * Method Name   : passbookUpdate
+	 * Method Name   : userTransactions
 	 * Description   : getting transactions of given user's UserId 
 	 * Return Type   : List(List of Transactions)
 	 * Parameter     : String USerId
@@ -41,17 +44,18 @@ public class PassBookController {
 	 * 
 	 **********************************************************************************/
 	@CrossOrigin
-	@GetMapping("/getBankTransactions/{userId}")
-	public List<Transaction> passbookUpdate(@PathVariable("userId") String userId)
-			throws ValidateException, PbankTXNNotFouException {
-		return service.passbookUpdate(userId);
+	@PostMapping("/getBankTransactions")
+	public List<Transaction> userTransactions(@RequestBody ReportForm rform)
+			throws ValidateException, PbankTXNNotFouException, AccountNotFoundException {
+		return service.userTransactions(rform);
 	}
 
 	
 	/**********************************************************************************
 	 * 
+	 * @throws AccountNotFoundException 
 	 * @Author Name  : venkata sai kumar
-	 * Method Name   : accountSummary
+	 * Method Name   : transactionsDtRang
 	 * Description   : getting transactions of given user's UserId between given dates
 	 * Return Type   : List(List of Transactions)
 	 * Parameter     : String UserId,LocalDate fromDt, LocalDate toDate
@@ -60,15 +64,17 @@ public class PassBookController {
 	 **********************************************************************************/
 	@CrossOrigin
 	@PostMapping("/getBankTxnsForDateRange")
-	public List<Transaction> accountSummary(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
+	public List<Transaction> transactionsDtRang(@RequestBody ReportForm rform) throws PbankTXNNotFouException, ValidateException, DateException, AccountNotFoundException {
 
-		return service.accountSummary(form.getUserId(), form.getFromDt(), form.getToDate());
+		return service.transactionsDtRange(rform);
 	}
 
 	/**********************************************************************************
 	 * 
+	 * @throws AccountNotFoundException 
+	 * @throws TxnsNumberException 
 	 * @Author Name  : venkata sai kumar
-	 * Method Name   : getBankTransactions
+	 * Method Name   : limitedTransactions
 	 * Description   : getting transactions of given user's UserId with limited transactions
 	 * Return Type   : List(List of Transactions)
 	 * Parameter 1   : String UserId,int txns
@@ -76,15 +82,16 @@ public class PassBookController {
 	 * 
 	 **********************************************************************************/
 	@CrossOrigin
-	@GetMapping("/getBankTxnsLimit/{userId}/{txns}")
-	public List<Transaction> getBankTransaction(@PathVariable("userId") String userId,@PathVariable("txns")int txns ) throws ValidateException, PbankTXNNotFouException {
+	@PostMapping("/getBankTxnsLimit")
+	public List<Transaction> limitedTransactions(@RequestBody ReportForm rform)  throws ValidateException, PbankTXNNotFouException, AccountNotFoundException, TxnsNumberException {
 
-		return service.getBankTransactions(userId, txns);
+		return service.limitedTransactions(rform);
 	}
 	
 	
 	/**********************************************************************************
 	 * 
+	 * @throws AccountNotFoundException 
 	 * @Author Name  : venkata sai kumar
 	 * Method Name   : lastPassbookUpdate
 	 * Description   : getting transactions of given user's UserId from Last Updated Date
@@ -95,9 +102,9 @@ public class PassBookController {
 	 **********************************************************************************/
 	@CrossOrigin
 	@PostMapping("/getBankTxnsFormLastUpdate")
-	public List<Transaction> lastPassbookUpdate(@RequestBody ReportForm form) throws PbankTXNNotFouException, ValidateException, DateException {
+	public List<Transaction> lastPassbookUpdate(@RequestBody ReportForm rform) throws PbankTXNNotFouException, ValidateException, DateException, AccountNotFoundException {
 
-		return service.lastPassbookUpdate(form.getUserId(), form.getFromDt());
+		return service.lastPassbookUpdate(rform);
 	}
 	
 }

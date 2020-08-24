@@ -11,7 +11,7 @@ import com.capgemini.pecunia.bank.dto.TxnForm;
 import com.capgemini.pecunia.bank.exceptions.AccountNotFoundException;
 import com.capgemini.pecunia.bank.exceptions.TransactionException;
 import com.capgemini.pecunia.bank.service.TransactionService;
-import com.capgemini.pecunia.bank.util.walletConstants;
+import com.capgemini.pecunia.bank.util.WalletConstants;
 
 @RestController
 public class TransactionController {
@@ -35,7 +35,7 @@ public class TransactionController {
 	public BankMessage debitUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
 
 		transactionService.debitUsingSlip(txnform);
-		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+		BankMessage bankmessage=new BankMessage(WalletConstants.TRANSACTION_SUCCESS);
 
 		return bankmessage;
 	}
@@ -56,7 +56,7 @@ public class TransactionController {
 	public BankMessage debitByCheque(@RequestBody TxnForm txnform) throws AccountNotFoundException, TransactionException {
 
 		transactionService.debitUsingCheque(txnform);
-		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+		BankMessage bankmessage=new BankMessage(WalletConstants.TRANSACTION_SUCCESS);
 
 		return bankmessage;
 	}
@@ -74,7 +74,7 @@ public class TransactionController {
 	public BankMessage creditUsingSlip(@RequestBody TxnForm txnform) throws AccountNotFoundException {
 
 		transactionService.creditUsingSlip(txnform);
-		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+		BankMessage bankmessage=new BankMessage(WalletConstants.TRANSACTION_SUCCESS);
 		return bankmessage;
 	}
 	
@@ -92,7 +92,7 @@ public class TransactionController {
 	public BankMessage creditByCheque(@RequestBody Transfer transfer) throws AccountNotFoundException, TransactionException {
 
 		transactionService.creditUsingCheque(transfer);
-		BankMessage bankmessage=new BankMessage(walletConstants.TRANSACTION_SUCCESS);
+		BankMessage bankmessage=new BankMessage(WalletConstants.TRANSACTION_SUCCESS);
 
 		return bankmessage;
 	}

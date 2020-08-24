@@ -36,7 +36,9 @@ public class LoanServiceImpl implements LoanService{
 	@Transactional
 	@Override
 	public boolean disburseLoanRequest(LoanDisbursalForm loanDisbursalForm) throws AccountNotFoundException {
+		
 		LoanRequest loanRequest = bankDao.getLoanRequest(loanDisbursalForm.getLoanRequestId());
+		
 		Account account = loanRequest.getAccount();
 		if(account == null) {
 			throw new AccountNotFoundException( LoanConstants.INVALID_CUSTOMER );
@@ -97,10 +99,13 @@ public class LoanServiceImpl implements LoanService{
 	@Override
 	public String createLoanRequest(LoanRequestForm loanRequestForm) throws AccountNotFoundException {
 		Account account = bankDao.getAccount(loanRequestForm.getAccountId());
+		
 		if(account==null)
 			throw new AccountNotFoundException(LoanConstants.INVALID_CUSTOMER);
 		long count = bankDao.countLoansForCustomer(loanRequestForm.getAccountId()) + LoanConstants.ONE;
+		
 		String loanRequestId = loanRequestForm.getAccountId() + LoanConstants.EMPTY +count;
+		
 		LoanRequest loanRequest = new LoanRequest();
 		loanRequest.setLoanRequestId(loanRequestId);
 		loanRequest.setLoanAmount(loanRequestForm.getLoanAmt());
@@ -110,7 +115,9 @@ public class LoanServiceImpl implements LoanService{
 		loanRequest.setRateOfInterest(loanRequest.getRateOfInterest());
 		loanRequest.setAccount(account);
 		loanRequest.setLoanRequestStatus(LoanConstants.PENDING);
+		
 		bankDao.addLoanDetails(loanRequest);
+		
 		return loanRequestId;
 	}
 	

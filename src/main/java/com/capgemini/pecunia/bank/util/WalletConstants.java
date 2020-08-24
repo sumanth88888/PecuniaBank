@@ -1,6 +1,6 @@
 package com.capgemini.pecunia.bank.util;
 
-public class walletConstants {
+public class WalletConstants {
 
 	public static final String ACCOUNT_CREATED="Account Created Successfully";
 	public static final String CUSTOMER_CREATED="Customer Created Successfully";

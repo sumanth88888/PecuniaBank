@@ -7,6 +7,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class ReportForm {
 
 	private String userId;
+	private int txns;
+	public int getTxns() {
+		return txns;
+	}
+	public void setTxns(int txns) {
+		this.txns = txns;
+	}
 	@DateTimeFormat(pattern="yyyy-M-d")
 	private LocalDate fromDt;
 	@DateTimeFormat(pattern="yyyy-M-d")
